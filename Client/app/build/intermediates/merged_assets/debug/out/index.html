@@ -1,0 +1,217 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <link href="fontawesome/css/all.css" rel="stylesheet" media="all">
+    <style>
+        .outer {
+            height: 100%;
+        }
+
+        .inner-button-container {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+
+        #backgroundImage {
+            z-index: 1;
+        }
+
+        #backgroundImage:before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-image: url(images/learn.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-color: black;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            filter: drop-shadow(8px 8px 10px gray);
+            filter: brightness(0.40);
+        }
+
+        .main {
+            margin: auto;
+            z-index: -1;
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .unselectable {
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            color: #cc0000;
+        }
+
+        .page_content {
+            padding: 40px;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="page_loading" class="centered">
+    <img src="images/loading.gif" height="140">
+</div>
+
+<div id="page_account" style="display:none" class="unselectable">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 62px;">
+        <button type="button" class="btn btn-light shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-arrow-left"></i>
+        </button>
+    </nav>
+
+    <div class="page_content">
+        <div class="page_view" id="page_account_view_forgot_password">
+            <div id="form-signin">
+                <!--    <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72"-->
+                <!--         height="72">-->
+                <!--                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>-->
+                <input type="email" id="inputEmail" class="form-control shadow-none" placeholder="Email address" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+
+                <button class="btn btn-dark btn-block shadow-none" type="submit" style="border-radius: unset;height: 48px;margin-bottom:20px">Reset</button>
+                <div>
+                    <div class="register-link">
+                        <p style="font-size: 14px;color: rgb(142, 142, 142);text-align: center;">
+                            Or return to
+                            <a onClick="showPageView('account','login');" href="#" style="color: black;">Log In.</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page_view" id="page_account_view_login" style="display:none">
+            <div id="form-signin">
+                <!--    <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72"-->
+                <!--         height="72">-->
+                <!--                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>-->
+                <input type="email" id="inputEmail" class="form-control shadow-none" placeholder="Email address" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                <input type="password" id="inputPassword" class="form-control shadow-none" placeholder="Password" required="" style="margin-bottom: 20px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                <div>
+                    <label style="float: right;
+    margin-bottom: 20px;font-size: 14px;">
+                        <a href="#" onClick="showPageView('account','forgot_password');" style="color: rgb(142, 142, 142);">Forgot password?</a>
+                    </label>
+                </div>
+                <button class="btn btn-dark btn-block shadow-none" type="submit" style="border-radius: unset;height: 48px;margin-bottom:20px">Sign in</button>
+                <div>
+                    <div class="register-link">
+                        <p style="font-size: 14px;color: rgb(142, 142, 142);text-align: center;">
+                            Not a member?
+                            <a onClick="showPageView('account','register');" href="#" style="color: black;">Join us.</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page_view" id="page_account_view_register" style="display:none">
+            <div id="form-register">
+                <!--    <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72"-->
+                <!--         height="72">-->
+                <!--                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>-->
+                <input type="email" id="inputEmail" class="form-control shadow-none" placeholder="Email address" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                <input type="password" id="inputPassword" class="form-control shadow-none" placeholder="Password" required="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                <input type="text" id="inputPassword" class="form-control shadow-none" placeholder="Frist name" required="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+
+                <input type="text" id="inputPassword" class="form-control shadow-none" placeholder="Last name" required="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+
+                <div class="form-group">
+                    <select class="form-control shadow-none" id="exampleFormControlSelect1" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                        <script>
+                            var year = new Date().getFullYear();
+                            for (i = 0; i < 100; i++) {
+                                $("#exampleFormControlSelect1").append("<option>"+(year-i)+"</option>");
+                            }
+                        </script>
+                    </select>
+                </div>
+            </div>
+            <button class="btn btn-dark btn-block shadow-none" type="submit" style="border-radius: unset;height: 48px;margin-bottom:20px">Join us</button>
+            <div>
+                <div class="register-link">
+                    <p style="font-size: 14px;color: rgb(142, 142, 142);text-align: center;">
+                        Already a member?
+                        <a onClick="showPageView('account','login');" href="#" style="color: black;">Sign in.</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div id="page_welcome" style="display:none" class="unselectable">
+    <div id="backgroundImage">
+        <div class="centered" style="color:white">Run your code flexibly!</div>
+        <div class="main">
+            <div class="inner-button-container">
+                <div class="btn-group" role="group" style="width:100%;height:62px;">
+                    <button type="button" class="btn btn-light shadow-none" style="width:50%;border-radius: unset;" onClick="showPage('account');showPageView('account','register');">
+                        Join now
+                    </button>
+                    <div style="width:2px;background:rgb(115, 115, 115);"></div>
+                    <button type="button" class="btn btn-light shadow-none" style="width:50%;border-radius: unset;" onClick="showPage('account');showPageView('account','login');">
+                        Login
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+    var lastPage = "loading";
+    var currentPage = "loading";
+
+    function showPage(page) {
+        setTimeout(function() {
+            $("#page_" + currentPage).hide();
+            $("#page_" + currentPage + " .page_view").hide();
+            lastPage = currentPage;
+            currentPage = page;
+            $("#page_" + currentPage).trigger('show_event');
+            $("#page_" + currentPage).show();
+        }, 120);
+    }
+
+    function showPageView(page, view) {
+            $("#page_" + page + " .page_view").hide();
+            $("#page_" + page + " #page_" + page + "_view_" + view).show();
+        }
+        /////////////////
+
+    <!--    function page_account_hide_event(){-->
+    <!--        $("#page_account #page_account_view_login").show();-->
+    <!--    }-->
+    <!--    $('#page_account').bind('show_event', page_account_show_event);-->
+
+    setTimeout(function() {
+        showPage("welcome");
+    }, 1000);
+</script>
+
+</html>
