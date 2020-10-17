@@ -168,7 +168,6 @@
     </div>
 </div>
 
-
 <div id="page_welcome" style="display:none" class="unselectable">
     <div id="backgroundImage">
         <div class="centered" style="color:white">Run your code flexibly!</div>
@@ -189,9 +188,86 @@
 </div>
 
 <div id="page_dashboard" style="display:none" class="unselectable">
-    <div class="page_content">
-        123213
+
+    <div class="page_view" id="page_dashboard_view_file" >
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 62px;">
+            <div>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-file"></i></button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-user"></i></button>
+            </div>
+        </nav>
+        <div style="padding: 10px;">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Language</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th style="vertical-align:middle"scope="row">1</th>
+                    <td style="vertical-align:middle">Tinh chieu cao</td>
+                    <td style="vertical-align:middle">Python</td>
+                    <td style="vertical-align:middle"><button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i></button></td>
+                </tr>
+                <tr>
+                    <th style="vertical-align:middle" scope="row">1</th>
+                    <td style="vertical-align:middle">Tinh chieu cao</td>
+                    <td style="vertical-align:middle">Python</td>
+                    <td style="vertical-align:middle"><button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i></button></td>
+                </tr>
+                <tr>
+                    <th style="vertical-align:middle" scope="row">1</th>
+                    <td style="vertical-align:middle">Tinh chieu cao</td>
+                    <td style="vertical-align:middle">Python</td>
+                    <td style="vertical-align:middle"><button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i></button></td>
+                </tr>
+                <tr>
+                    <th style="vertical-align:middle" scope="row">1</th>
+                    <td style="vertical-align:middle">Tinh chieu cao</td>
+                    <td style="vertical-align:middle">Python</td>
+                    <td style="vertical-align:middle"><button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i></button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
     </div>
+
+    <div class="page_view" id="page_dashboard_view_account" style="display:none">
+        account
+    </div>
+
+    <div class="page_view" id="page_dashboard_view_run" style="display:none">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 62px;">
+            <div>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-arrow-left"></i></button>
+                <label style="margin: auto;
+    font-size: 16px;
+    color: black;
+    margin-left: 13px;
+    /* background: red; */
+    margin-top: 3px;
+    position: absolute;
+}">Bài tập ng</label>
+            </div>
+            <div>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;margin-right: 10px;"><i class="fas fa-save"></i></button>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-play"></i></button>
+            </div>
+        </nav>
+        <div style="padding: 10px;">
+            123213
+        </div>
+    </div>
+
+
+
 </div>
 
 </body>
@@ -221,9 +297,30 @@
     <!--    }-->
     <!--    $('#page_account').bind('show_event', page_account_show_event);-->
 
-    setTimeout(function() {
-        showPage("welcome");
-    }, 1000);
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+            }
+        }
+    };
+
+    var parameter_account_login = getUrlParameter('account_login');
+
+    if (parameter_account_login == 0) {
+         setTimeout(function() {
+            showPage("welcome");
+        }, 1000);
+    } else if(parameter_account_login == 1){
+        showPage("dashboard");
+    }
 
     //////////////////////
 
@@ -236,6 +333,7 @@
 
     function account_login_native(){
         $("#page_loading").hide();
+        showPage("dashboard");
     }
 </script>
 

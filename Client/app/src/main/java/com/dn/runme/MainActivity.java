@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.addJavascriptInterface(new WebAppInterface(this), "Android");
 
-        webView.loadUrl("file:///android_asset/index.html");
+        webView.loadUrl("file:///android_asset/index.html?account_login=1");
 
 //        <input type="button" value="Say hello" onClick="showAndroidToast('Hello!')" />
 //        <script type="text/javascript">
