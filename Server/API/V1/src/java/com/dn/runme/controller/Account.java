@@ -41,6 +41,17 @@ public class Account {
         }
         return null;
     }
+    
+     @RequestMapping(value = "/Authentication", method=RequestMethod.POST)
+    @ResponseBody
+    public byte[] Authentication(@RequestParam(value = "Token", required = true) String token) {
+        try {
+            return com.dn.runme.model.Account.Authentication(token).toString().getBytes("UTF-8");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
 
 //    @RequestMapping(value = "/Register")
 //    @ResponseBody
@@ -57,17 +68,7 @@ public class Account {
 //        return null;
 //    }
 //
-//    @RequestMapping(value = "/Authentication")
-//    @ResponseBody
-//    public byte[] Authentication(@RequestParam(value = "Device_Selected", required = false) String device_selected,
-//            @RequestParam(value = "Token", required = true) String token) {
-//        try {
-//            return com.dn.amonir.model.Account.Authentication((device_selected == null) ? 0 : Integer.valueOf(device_selected), token).toString().getBytes("UTF-8");
-//        } catch (Exception ex) {
-//            ex.printStackTrace();
-//        }
-//        return null;
-//    }
+
 //
 //    @RequestMapping(value = "/ForgotPassword")
 //    @ResponseBody

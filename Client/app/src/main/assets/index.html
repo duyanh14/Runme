@@ -6,6 +6,9 @@
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <link href="fontawesome/css/all.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="css/codemirror.css">
+    <script src="js/codemirror.js"></script>
+    <script src="js/python.js"></script>
     <style>
         .outer {
             height: 100%;
@@ -61,7 +64,6 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
-            color: #cc0000;
         }
 
         .page_content {
@@ -87,16 +89,18 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 62px;
     position: fixed;
     width: 100%;">
-        <button type="button" class="btn btn-light shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-arrow-left"></i>
+        <button type="button" class="btn btn-light shadow-none" onclick="showPage('welcome')" style="border-radius: unset;width:50px"><i class="fas fa-arrow-left"></i>
         </button>
     </nav>
 
     <div class="page_content">
         <div class="page_view" id="page_account_view_forgot_password">
             <div id="form-signin">
-                <!--    <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72"-->
-                <!--         height="72">-->
-                <!--                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>-->
+                <h1 class="h3 mb-3 font-weight-normal" style="
+                    text-align: center;
+                    padding: 22px;font-size: 22px;
+                ">Account / Forgot password</h1>
+
                 <input type="email" id="inputEmail" class="form-control shadow-none" placeholder="Email address" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
 
                 <button class="btn btn-dark btn-block shadow-none" type="submit" style="border-radius: unset;height: 48px;margin-bottom:20px">Reset</button>
@@ -112,9 +116,11 @@
         </div>
         <div class="page_view" id="page_account_view_login" style="display:none">
             <div id="form-signin">
-                <!--    <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72"-->
-                <!--         height="72">-->
-                <!--                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>-->
+                <h1 class="h3 mb-3 font-weight-normal" style="
+                    text-align: center;
+                    padding: 22px;font-size: 22px;
+                ">Account / Login</h1>
+
                 <input type="email" id="page_account_view_login_email" class="form-control shadow-none" placeholder="Email address" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
                 <input type="password" id="page_account_view_login_password" class="form-control shadow-none" placeholder="Password" required="" style="margin-bottom: 20px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
                 <div>
@@ -137,9 +143,11 @@
 
         <div class="page_view" id="page_account_view_register" style="display:none">
             <div id="form-register">
-                <!--    <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72"-->
-                <!--         height="72">-->
-                <!--                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>-->
+                <h1 class="h3 mb-3 font-weight-normal" style="
+                    text-align: center;
+                    padding: 22px;font-size: 22px;
+                ">Account / Register</h1>
+
                 <input type="email" id="inputEmail" class="form-control shadow-none" placeholder="Email address" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
                 <input type="password" id="inputPassword" class="form-control shadow-none" placeholder="Password" required="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
                 <input type="text" id="inputPassword" class="form-control shadow-none" placeholder="Frist name" required="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
@@ -172,7 +180,13 @@
 
 <div id="page_welcome" style="display:none" class="unselectable">
     <div id="backgroundImage">
-        <div class="centered" style="color:white">Run your code flexibly!</div>
+        <div class="centered">
+            <img style="    display: block;
+    margin-left: auto;
+    margin-right: auto;" src="images/logo.png" height="140">
+            <br>
+            <div style="color:white">Run your code flexibly!</div>
+        </div>
         <div class="main">
             <div class="inner-button-container">
                 <div class="btn-group" role="group" style="width:100%;height:62px;">
@@ -189,23 +203,23 @@
     </div>
 </div>
 
-<div id="page_dashboard" style="display:none">
+<div id="page_dashboard">
 
-    <div class="page_view" id="page_dashboard_view_file" style="display:none">
+    <div class="page_view" id="page_dashboard_view_script" style="display:none">
         <nav class="navbar navbar-expand-lg navbar-light bg-light top-bar fixed" style="height: 62px;
     position: fixed;
     width: 100%;">
             <div>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-file"></i>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;width:50px"><i class="fas fa-file"></i>
                 </button>
             </div>
             <div>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-user"></i>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPageView('dashboard','account')" style="border-radius: unset;width:50px"><i class="fas fa-user"></i>
                 </button>
             </div>
         </nav>
         <div class="page_content">
-            <table class="table table-bordered" style="margin-bottom: 0rem;">
+            <table class="table table-bordered" style="margin-bottom: 0rem;" id="page_dashboard_view_script_list">
                 <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
@@ -215,168 +229,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
-                    <td style="vertical-align:middle;text-decoration: underline;">Tinh chieu cao</td>
-                    <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle">
-                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
-                    <td style="vertical-align:middle">Tinh chieu cao</td>
-                    <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle">
-                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
-                    <td style="vertical-align:middle">Tinh chieu cao</td>
-                    <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle">
-                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
-                    <td style="vertical-align:middle">Tinh chieu cao</td>
-                    <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle">
-                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
-                    <td style="vertical-align:middle">Tinh chieu cao</td>
-                    <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle">
-                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
-                    <td style="vertical-align:middle">Tinh chieu cao</td>
-                    <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle">
-                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
-                    <td style="vertical-align:middle">Tinh chieu cao</td>
-                    <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle">
-                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
-                    <td style="vertical-align:middle">Tinh chieu cao</td>
-                    <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle">
-                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
-                    <td style="vertical-align:middle">Tinh chieu cao</td>
-                    <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle">
-                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
-                    <td style="vertical-align:middle">Tinh chieu cao</td>
-                    <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle">
-                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
-                    <td style="vertical-align:middle">Tinh chieu cao</td>
-                    <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle">
-                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
-                    <td style="vertical-align:middle">Tinh chieu cao</td>
-                    <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle">
-                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
-                    <td style="vertical-align:middle">Tinh chieu cao</td>
-                    <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle">
-                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
-                    <td style="vertical-align:middle">Tinh chieu cao</td>
-                    <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle">
-                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
-                    <td style="vertical-align:middle">Tinh chieu cao</td>
-                    <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle">
-                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
-                    <td style="vertical-align:middle">Tinh chieu cao</td>
-                    <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle">
-                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
-                    <td style="vertical-align:middle">Tinh chieu cao</td>
-                    <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle">
-                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
-                    <td style="vertical-align:middle">Tinh chieu cao</td>
-                    <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle">
-                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
-                        </button>
-                    </td>
-                </tr>
+
                 </tbody>
             </table>
             <!--            <div style="position: absolute;-->
@@ -394,112 +247,118 @@
 
     </div>
 
-    <div class="page_view" id="page_dashboard_view_file_save" style="display:none">
+    <div class="page_view" id="page_dashboard_view_script_details" style="display:none">
         <nav class="navbar navbar-expand-lg navbar-light bg-light top-bar fixed" style="height: 62px;
     position: fixed;
     width: 100%;">
             <div>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-save"></i>
+                <button type="button" class="btn btn-dark shadow-none" id="page_dashboard_view_script_details_save" onclick="account_script_details_save()" style="border-radius: unset;width:50px"><i class="fas fa-save"></i>
                 </button>
             </div>
             <div>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-window-close"></i>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPageView('dashboard','script')" style="border-radius: unset;width:50px"><i class="fas fa-window-close"></i>
                 </button>
             </div>
         </nav>
         <div class="page_content">
             <div id="form-register">
-                <!--    <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72"-->
-                <!--         height="72">-->
-                <!--                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>-->
-
+                <h1 class="h3 mb-3 font-weight-normal" style="
+                    text-align: center;
+                    padding: 22px;font-size: 22px;
+                ">Script / Details</h1>
 
                 <div class="row" style="margin-right: 0px;">
                     <div class="col-8" style="
                     padding-right: 0px;
                 ">
-                        <input type="email" id="inputEmail" class="form-control shadow-none" placeholder="Email address" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                        <input type="email" id="page_dashboard_view_script_details_name" class="form-control shadow-none" placeholder="Name" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
                     </div>
                     <div class="col" style="padding-left: 10px;padding-right: 0px;">
-                        <select class="form-control shadow-none" id="exampleFormControlSelect1" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
-                            <option>Python</option>
+                        <select class="form-control shadow-none" id="page_dashboard_view_script_details_language" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                            <option value=1>Python</option>
                         </select>
                     </div>
                 </div>
 
-                <table class="table" style="margin-bottom: 10px;display:none" id="page_dashboard_view_file_save_date">
+                <table class="table" style="margin-bottom: 10px;" id="page_dashboard_view_script_details_date">
                     <tbody>
                     <tr style="height: 50px;">
                         <th class="w-50" style="vertical-align:middle;padding-left: 0px;">Date modified</th>
-                        <td style="vertical-align:middle;padding-left: 0px;">Carter</td>
+                        <td style="vertical-align:middle;padding-left: 0px;" id="page_dashboard_view_script_details_date_modified"></td>
                     </tr>
                     <tr style="height: 50px;">
                         <th class="w-50" style="vertical-align:middle;padding-left: 0px;">Date created</th>
-                        <td style="vertical-align:middle;padding-left: 0px;">Carter</td>
+                        <td style="vertical-align:middle;padding-left: 0px;" id="page_dashboard_view_script_details_date_created"></td>
                     </tr>
                     </tbody>
                 </table>
+
+                <h1 class="h3 mb-3 font-weight-normal" style="
+                    text-align: center;
+                    padding: 22px;font-size: 22px;display:none;
+                ">Script / Run timer</h1>
 
             </div>
         </div>
     </div>
 
-    <div class="page_view" id="page_dashboard_view_file_account">
+    <div class="page_view" id="page_dashboard_view_account" style="display:none">
         <nav class="navbar navbar-expand-lg navbar-light bg-light top-bar fixed" style="height: 62px;
     position: fixed;
     width: 100%;">
             <div>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-save"></i>
-                </button>
+
             </div>
             <div>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-window-close"></i>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPageView('dashboard','script')" style="border-radius: unset;width:50px"><i class="fas fa-window-close"></i>
                 </button>
             </div>
         </nav>
         <div class="page_content">
             <div id="form-register">
-                <!--    <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72"-->
-                <!--         height="72">-->
-                <!--                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>-->
+
+                <h1 class="h3 mb-3 font-weight-normal" style="
+                    text-align: center;
+                    padding: 22px;font-size: 22px;
+                ">Account / Details</h1>
 
 
-                <div class="row" style="margin-right: 0px;">
-                    <div class="col-8" style="
-                    padding-right: 0px;
-                ">
-                        <input type="email" id="inputEmail" class="form-control shadow-none" placeholder="Email address" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
-                    </div>
-                    <div class="col" style="padding-left: 10px;padding-right: 0px;">
-                        <select class="form-control shadow-none" id="exampleFormControlSelect1" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
-                            <option>Python</option>
-                        </select>
-                    </div>
+                <input readonly type="email" id="inputEmail" class="form-control shadow-none" placeholder="Email address" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                <input type="email" id="inputEmail" class="form-control shadow-none" placeholder="Frist name" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                <input type="email" id="inputEmail" class="form-control shadow-none" placeholder="Last name" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                <div class="form-group">
+                    <select class="form-control shadow-none" id="exampleFormControlSelect2" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                        <script>
+                                var year = new Date().getFullYear();
+                                for (i = 0; i < 100; i++) {
+                                    $("#exampleFormControlSelect2").append("<option>" + (year - i) + "</option>");
+                                }
+                            </script>
+                    </select>
                 </div>
+                <button class="btn btn-dark btn-block shadow-none" type="submit" style="border-radius: unset;height: 48px;margin-bottom:10px">Save</button>
+                <button class="btn btn-dark btn-block shadow-none" onclick="account_logout();" style="border-radius: unset;height: 48px;margin-bottom:20px">Logout</button>
+                <h1 class="h3 mb-3 font-weight-normal" style="
+                    text-align: center;
+                    padding: 22px;font-size: 22px;
+                ">Account / Change password</h1>
 
-                <table class="table" style="margin-bottom: 10px;display:none" id="page_dashboard_view_file_save_date">
-                    <tbody>
-                    <tr style="height: 50px;">
-                        <th class="w-50" style="vertical-align:middle;padding-left: 0px;">Date modified</th>
-                        <td style="vertical-align:middle;padding-left: 0px;">Carter</td>
-                    </tr>
-                    <tr style="height: 50px;">
-                        <th class="w-50" style="vertical-align:middle;padding-left: 0px;">Date created</th>
-                        <td style="vertical-align:middle;padding-left: 0px;">Carter</td>
-                    </tr>
-                    </tbody>
-                </table>
+                <input type="password" id="inputEmail" class="form-control shadow-none" placeholder="Current password" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                <input type="password" id="inputEmail" class="form-control shadow-none" placeholder="New password" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                <input type="password" id="inputEmail" class="form-control shadow-none" placeholder="Retype new password" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+
+                <button class="btn btn-dark btn-block shadow-none" type="submit" style="border-radius: unset;height: 48px">Change</button>
 
             </div>
         </div>
     </div>
 
-    <div class="page_view" id="page_dashboard_view_run" style="display:none">
+    <div class="page_view" id="page_dashboard_view_script_editor">
         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 62px;
     position: fixed;
     width: 100%;">
             <div>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-arrow-left"></i>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPageView('dashboard','script')" style="border-radius: unset;width:50px"><i class="fas fa-arrow-left"></i>
                 </button>
                 <label style="margin: auto;
     font-size: 16px;
@@ -511,19 +370,38 @@
 }">Bài tập ng</label>
             </div>
             <div>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;margin-right: 10px;"><i class="fas fa-save"></i>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="width:50px;border-radius: unset;margin-right: 10px;"><i class="fas fa-save"></i>
                 </button>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-play"></i>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPageView('dashboard','script')" style="width:50px;border-radius: unset;"><i class="fas fa-play"></i>
                 </button>
             </div>
         </nav>
-        <div style="padding: 10px;">
-            123213
+        <div class="page_content">
+            <button type="button" class="btn btn-dark shadow-none" onclick="page_dashboard_view_script_editor_tab()" style="width:50px;border-radius: unset;margin-bottom: 10px;float:right;"><i class="fas fa-indent"></i>
+            </button>
+            <textarea id="page_dashboard_view_script_editor_content" style="height:100%"></textarea>
         </div>
     </div>
 </div>
 
 </body>
+<script>
+
+    var page_dashboard_view_script_editor = CodeMirror.fromTextArea(document.getElementById("page_dashboard_view_script_editor_content"), {
+        mode: {
+            name: "python",
+            version: 3,
+            singleLineStringErrors: false
+        },
+        lineNumbers: true,
+        indentUnit: 4,
+        matchBrackets: true
+    });
+    page_dashboard_view_script_editor.setSize("100%", "83%");
+    $("#page_dashboard").hide();
+    $("#page_dashboard_view_script_editor").hide();
+</script>
+
 <script>
     var lastPage = "loading";
     var currentPage = "loading";
@@ -569,10 +447,12 @@
 
     if (parameter_account_login == 0) {
         setTimeout(function() {
-            showPage("welcome");
+            showPage("dashboard");
         }, 1000);
+                            showPageView("dashboard", "script_editor");
+
     } else if (parameter_account_login == 1) {
-        showPage("dashboard");
+        account_login_callback(0)
     }
 
     //////////////////////
@@ -584,10 +464,92 @@
         Android.Account_Login(email, password);
     }
 
-    function account_login_native() {
+    function account_login_callback(status) {
+        if (status == 0) {
+            showPage("dashboard");
+            showPageView("dashboard", "script");
+            account_script_clear();
+            Android.Account_Script_List();
+        }
+        setTimeout(function() {
+            $("#page_loading").hide();
+        }, 1000);
+    }
+
+    function account_logout() {
+        Android.Account_Logout();
+        showPage("welcome");
+    }
+
+    var account_script_index = 0;
+
+    function account_script_clear() {
+        account_script_index = 0;
+        $('#page_dashboard_view_script_list tbody').empty()
+    }
+
+    function account_script_details(id) {
+        $("#page_loading").show();
+        Android.Account_Script_Details(id);
+    }
+
+    function account_script_details_callback(id, name, language, date_modified, date_created) {
+        $("#page_dashboard_view_script_details").data("id", id);
+        $("#page_dashboard_view_script_details_name").val(name);
+        $("#page_dashboard_view_script_details_language").val(language);
+        $("#page_dashboard_view_script_details_date_modified").text(date_modified);
+        $("#page_dashboard_view_script_details_date_created").text(date_created);
+        showPageView('dashboard', 'script_details');
         $("#page_loading").hide();
-        showPage("dashboard");
+    }
+
+    function account_script_details_save() {
+        $("#page_loading").show();
+        id = $("#page_dashboard_view_script_details").data("id");
+        name = $("#page_dashboard_view_script_details_name").val();
+        language = $("#page_dashboard_view_script_details_language").val();
+
+        Android.Account_Script_Details_Save(id, name, language);
+    }
+
+    function account_script_details_save_callback() {
+        $("#page_loading").hide();
+    }
+
+    function account_script_list_set(id, name, language) {
+        $('#page_dashboard_view_script_list tr[data-id="' + id + '"] td:eq(0)').text(name);
+        $('#page_dashboard_view_script_list tr[data-id="' + id + '"] td:eq(1)').text(language);
+    }
+
+    function account_script_editor(id) {
+        Android.showToast(id);
+
+        showPageView('dashboard', 'script_editor');
+    }
+
+    function account_script_list_put(id, name, language) {
+        $html = '<tr data-id="' + id + '">';
+        $html += '            <th style="vertical-align:middle;text-align: center;" scope="row">' + (account_script_index + 1) + '</th>';
+        $html += '            <td onclick="account_script_editor(' + "'" + id + "'" + ')" style="vertical-align:middle;text-decoration: underline;">' + name + '</td>';
+        $html += '            <td style="vertical-align:middle">' + language + '</td>';
+        $html += '            <td style="vertical-align:middle">';
+        $html += '                <button type="button" class="btn btn-dark shadow-none" onclick="account_script_details(' + "'" + id + "'" + ')" style="border-radius: unset;"><i class="fas fa-info"></i>';
+        $html += '                </button>';
+        $html += '            </td>';
+        $html += '        </tr>';
+
+        $("#page_dashboard_view_script_list").append($html);
+        account_script_index += 1;
+    }
+
+    function page_dashboard_view_script_editor_tab(){
+        var doc = page_dashboard_view_script_editor.getDoc();
+        var cursor = doc.getCursor();
+        doc.replaceRange("    ", cursor);
+        page_dashboard_view_script_editor.focus();
+        page_dashboard_view_script_editor.setCursor(page_dashboard_view_script_editor.lineCount(), 0);
     }
 </script>
+
 
 </html>
