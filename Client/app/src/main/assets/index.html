@@ -65,8 +65,8 @@
         }
 
         .page_content {
-            padding: 40px;
-            padding-bottom: 20px;
+            padding: 10px;
+            padding-top: 72px;
         }
     </style>
 </head>
@@ -84,7 +84,9 @@
 </div>
 
 <div id="page_account" style="display:none" class="unselectable">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 62px;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 62px;
+    position: fixed;
+    width: 100%;">
         <button type="button" class="btn btn-light shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-arrow-left"></i>
         </button>
     </nav>
@@ -187,19 +189,23 @@
     </div>
 </div>
 
-<div id="page_dashboard" style="display:none" class="unselectable">
+<div id="page_dashboard" style="display:none">
 
-    <div class="page_view" id="page_dashboard_view_file" >
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 62px;">
+    <div class="page_view" id="page_dashboard_view_file" style="display:none">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light top-bar fixed" style="height: 62px;
+    position: fixed;
+    width: 100%;">
             <div>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-file"></i></button>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-file"></i>
+                </button>
             </div>
             <div>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-user"></i></button>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-user"></i>
+                </button>
             </div>
         </nav>
-        <div style="padding: 10px;">
-            <table class="table table-bordered">
+        <div class="page_content">
+            <table class="table table-bordered" style="margin-bottom: 0rem;">
                 <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
@@ -210,43 +216,291 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <th style="vertical-align:middle;text-align: center;"scope="row">1</th>
-                    <td style="vertical-align:middle">Tinh chieu cao</td>
+                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
+                    <td style="vertical-align:middle;text-decoration: underline;">Tinh chieu cao</td>
                     <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle"><button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i></button></td>
+                    <td style="vertical-align:middle">
+                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
+                        </button>
+                    </td>
                 </tr>
                 <tr>
-                    <th style="vertical-align:middle;text-align: center;"scope="row">1</th>
+                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
                     <td style="vertical-align:middle">Tinh chieu cao</td>
                     <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle"><button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i></button></td>
+                    <td style="vertical-align:middle">
+                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
+                        </button>
+                    </td>
                 </tr>
                 <tr>
-                    <th style="vertical-align:middle;text-align: center;"scope="row">1</th>
+                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
                     <td style="vertical-align:middle">Tinh chieu cao</td>
                     <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle"><button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i></button></td>
+                    <td style="vertical-align:middle">
+                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
+                        </button>
+                    </td>
                 </tr>
                 <tr>
-                    <th style="vertical-align:middle;text-align: center;"scope="row">1</th>
+                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
                     <td style="vertical-align:middle">Tinh chieu cao</td>
                     <td style="vertical-align:middle">Python</td>
-                    <td style="vertical-align:middle"><button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i></button></td>
+                    <td style="vertical-align:middle">
+                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
+                    <td style="vertical-align:middle">Tinh chieu cao</td>
+                    <td style="vertical-align:middle">Python</td>
+                    <td style="vertical-align:middle">
+                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
+                    <td style="vertical-align:middle">Tinh chieu cao</td>
+                    <td style="vertical-align:middle">Python</td>
+                    <td style="vertical-align:middle">
+                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
+                    <td style="vertical-align:middle">Tinh chieu cao</td>
+                    <td style="vertical-align:middle">Python</td>
+                    <td style="vertical-align:middle">
+                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
+                    <td style="vertical-align:middle">Tinh chieu cao</td>
+                    <td style="vertical-align:middle">Python</td>
+                    <td style="vertical-align:middle">
+                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
+                    <td style="vertical-align:middle">Tinh chieu cao</td>
+                    <td style="vertical-align:middle">Python</td>
+                    <td style="vertical-align:middle">
+                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
+                    <td style="vertical-align:middle">Tinh chieu cao</td>
+                    <td style="vertical-align:middle">Python</td>
+                    <td style="vertical-align:middle">
+                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
+                    <td style="vertical-align:middle">Tinh chieu cao</td>
+                    <td style="vertical-align:middle">Python</td>
+                    <td style="vertical-align:middle">
+                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
+                    <td style="vertical-align:middle">Tinh chieu cao</td>
+                    <td style="vertical-align:middle">Python</td>
+                    <td style="vertical-align:middle">
+                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
+                    <td style="vertical-align:middle">Tinh chieu cao</td>
+                    <td style="vertical-align:middle">Python</td>
+                    <td style="vertical-align:middle">
+                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
+                    <td style="vertical-align:middle">Tinh chieu cao</td>
+                    <td style="vertical-align:middle">Python</td>
+                    <td style="vertical-align:middle">
+                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
+                    <td style="vertical-align:middle">Tinh chieu cao</td>
+                    <td style="vertical-align:middle">Python</td>
+                    <td style="vertical-align:middle">
+                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
+                    <td style="vertical-align:middle">Tinh chieu cao</td>
+                    <td style="vertical-align:middle">Python</td>
+                    <td style="vertical-align:middle">
+                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
+                    <td style="vertical-align:middle">Tinh chieu cao</td>
+                    <td style="vertical-align:middle">Python</td>
+                    <td style="vertical-align:middle">
+                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="vertical-align:middle;text-align: center;" scope="row">1</th>
+                    <td style="vertical-align:middle">Tinh chieu cao</td>
+                    <td style="vertical-align:middle">Python</td>
+                    <td style="vertical-align:middle">
+                        <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-info"></i>
+                        </button>
+                    </td>
                 </tr>
                 </tbody>
             </table>
+            <!--            <div style="position: absolute;-->
+            <!--    bottom: 0;-->
+            <!--    right: 0;-->
+            <!--    left: 0;-->
+            <!--    padding-bottom: 10px;">-->
+            <!--                <div style="float:right;">-->
+            <!--                    <button type="button" class="btn btn-dark shadow-none"  style="border-radius: unset;margin-right: 10px;">1</button>-->
+            <!--                    <button type="button" class="btn btn-dark shadow-none"  style="border-radius: unset;margin-right: 10px;text-decoration: underline;font-weight: bold;">3</button>-->
+            <!--                    <button type="button" class="btn btn-dark shadow-none"  style="border-radius: unset;margin-right: 10px;">4</button>-->
+            <!--                </div>-->
+            <!--            </div>-->
         </div>
 
     </div>
 
-    <div class="page_view" id="page_dashboard_view_account" style="display:none">
-        account
+    <div class="page_view" id="page_dashboard_view_file_save" style="display:none">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light top-bar fixed" style="height: 62px;
+    position: fixed;
+    width: 100%;">
+            <div>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-save"></i>
+                </button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-window-close"></i>
+                </button>
+            </div>
+        </nav>
+        <div class="page_content">
+            <div id="form-register">
+                <!--    <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72"-->
+                <!--         height="72">-->
+                <!--                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>-->
+
+
+                <div class="row" style="margin-right: 0px;">
+                    <div class="col-8" style="
+                    padding-right: 0px;
+                ">
+                        <input type="email" id="inputEmail" class="form-control shadow-none" placeholder="Email address" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                    </div>
+                    <div class="col" style="padding-left: 10px;padding-right: 0px;">
+                        <select class="form-control shadow-none" id="exampleFormControlSelect1" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                            <option>Python</option>
+                        </select>
+                    </div>
+                </div>
+
+                <table class="table" style="margin-bottom: 10px;display:none" id="page_dashboard_view_file_save_date">
+                    <tbody>
+                    <tr style="height: 50px;">
+                        <th class="w-50" style="vertical-align:middle;padding-left: 0px;">Date modified</th>
+                        <td style="vertical-align:middle;padding-left: 0px;">Carter</td>
+                    </tr>
+                    <tr style="height: 50px;">
+                        <th class="w-50" style="vertical-align:middle;padding-left: 0px;">Date created</th>
+                        <td style="vertical-align:middle;padding-left: 0px;">Carter</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="page_view" id="page_dashboard_view_file_account">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light top-bar fixed" style="height: 62px;
+    position: fixed;
+    width: 100%;">
+            <div>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-save"></i>
+                </button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-window-close"></i>
+                </button>
+            </div>
+        </nav>
+        <div class="page_content">
+            <div id="form-register">
+                <!--    <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72"-->
+                <!--         height="72">-->
+                <!--                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>-->
+
+
+                <div class="row" style="margin-right: 0px;">
+                    <div class="col-8" style="
+                    padding-right: 0px;
+                ">
+                        <input type="email" id="inputEmail" class="form-control shadow-none" placeholder="Email address" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                    </div>
+                    <div class="col" style="padding-left: 10px;padding-right: 0px;">
+                        <select class="form-control shadow-none" id="exampleFormControlSelect1" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                            <option>Python</option>
+                        </select>
+                    </div>
+                </div>
+
+                <table class="table" style="margin-bottom: 10px;display:none" id="page_dashboard_view_file_save_date">
+                    <tbody>
+                    <tr style="height: 50px;">
+                        <th class="w-50" style="vertical-align:middle;padding-left: 0px;">Date modified</th>
+                        <td style="vertical-align:middle;padding-left: 0px;">Carter</td>
+                    </tr>
+                    <tr style="height: 50px;">
+                        <th class="w-50" style="vertical-align:middle;padding-left: 0px;">Date created</th>
+                        <td style="vertical-align:middle;padding-left: 0px;">Carter</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
     </div>
 
     <div class="page_view" id="page_dashboard_view_run" style="display:none">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 62px;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 62px;
+    position: fixed;
+    width: 100%;">
             <div>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-arrow-left"></i></button>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-arrow-left"></i>
+                </button>
                 <label style="margin: auto;
     font-size: 16px;
     color: black;
@@ -257,17 +511,16 @@
 }">Bài tập ng</label>
             </div>
             <div>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;margin-right: 10px;"><i class="fas fa-save"></i></button>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-play"></i></button>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;margin-right: 10px;"><i class="fas fa-save"></i>
+                </button>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;"><i class="fas fa-play"></i>
+                </button>
             </div>
         </nav>
         <div style="padding: 10px;">
             123213
         </div>
     </div>
-
-
-
 </div>
 
 </body>
@@ -315,23 +568,23 @@
     var parameter_account_login = getUrlParameter('account_login');
 
     if (parameter_account_login == 0) {
-         setTimeout(function() {
+        setTimeout(function() {
             showPage("welcome");
         }, 1000);
-    } else if(parameter_account_login == 1){
+    } else if (parameter_account_login == 1) {
         showPage("dashboard");
     }
 
     //////////////////////
 
-    function account_login(){
-        let email = $( "#page_account_view_login_email" ).val();
-        let password = $( "#page_account_view_login_password" ).val();
+    function account_login() {
+        let email = $("#page_account_view_login_email").val();
+        let password = $("#page_account_view_login_password").val();
         $("#page_loading").show();
-        Android.Account_Login(email,password);
+        Android.Account_Login(email, password);
     }
 
-    function account_login_native(){
+    function account_login_native() {
         $("#page_loading").hide();
         showPage("dashboard");
     }

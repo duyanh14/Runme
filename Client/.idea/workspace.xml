@@ -15,28 +15,19 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/dn/runme/MainActivity.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/dn/runme/MainActivity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/dn/runme/WebAppInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/dn/runme/WebAppInterface.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_assets/debug/out/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_assets/debug/out/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/dn/runme/MainActivity.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/dn/runme/MainActivity.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/dn/runme/WebAppInterface.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/dn/runme/WebAppInterface.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/assets/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dn/runme/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dn/runme/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dn/runme/WebAppInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dn/runme/WebAppInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="ce09171983d88032047e" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="10.1.10.189:5555" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -67,8 +58,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="10.1.10.89:5555" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-10-16T21:44:47.642Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="ce09171983d88032047e" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-10-17T09:05:21.276Z" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
@@ -171,25 +162,25 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="287" y="145" key="#PSD/0.0.1536.824@0.0.1536.824" timestamp="1602889065116" />
-    <state width="1492" height="210" key="GridCell.Tab.0.bottom" timestamp="1602902756236">
+    <state width="1492" height="210" key="GridCell.Tab.0.bottom" timestamp="1602938606381">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1492" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602902756236" />
+    <state width="1492" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602938606381" />
     <state width="1340" height="224" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1602792919135" />
-    <state width="1492" height="210" key="GridCell.Tab.0.center" timestamp="1602902756236">
+    <state width="1492" height="210" key="GridCell.Tab.0.center" timestamp="1602938606381">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1492" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602902756236" />
+    <state width="1492" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602938606381" />
     <state width="1340" height="224" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1602792919134" />
-    <state width="1492" height="210" key="GridCell.Tab.0.left" timestamp="1602902756236">
+    <state width="1492" height="210" key="GridCell.Tab.0.left" timestamp="1602938606381">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1492" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602902756236" />
+    <state width="1492" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602938606381" />
     <state width="1340" height="224" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1602792919134" />
-    <state width="1492" height="210" key="GridCell.Tab.0.right" timestamp="1602902756236">
+    <state width="1492" height="210" key="GridCell.Tab.0.right" timestamp="1602938606381">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1492" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602902756236" />
+    <state width="1492" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602938606381" />
     <state width="1340" height="224" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1602792919135" />
     <state x="560" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602868669397">
       <screen x="0" y="0" width="1536" height="824" />
