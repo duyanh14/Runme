@@ -13,7 +13,7 @@
  
     <!-- declaring base package -->
     <context:annotation-config />
-    <context:component-scan base-package="com.dn.amonir.controller" />
+    <context:component-scan base-package="com.dn.runme.controller" />
      
     <!-- adding view resolver to show jsp's on browser -->
     

@@ -73,8 +73,14 @@
 
 <body>
 
-<div id="page_loading" class="centered">
-    <img src="images/loading.gif" height="140">
+<div id="page_loading" class="centered" style="
+    z-index: 9999;
+    background: white;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+">
+    <img src="images/loading.gif" height="140" style="position: absolute;margin: auto;top: 0;left: 0;right: 0;bottom: 0;">
 </div>
 
 <div id="page_account" style="display:none" class="unselectable">
@@ -107,15 +113,15 @@
                 <!--    <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72"-->
                 <!--         height="72">-->
                 <!--                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>-->
-                <input type="email" id="inputEmail" class="form-control shadow-none" placeholder="Email address" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
-                <input type="password" id="inputPassword" class="form-control shadow-none" placeholder="Password" required="" style="margin-bottom: 20px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                <input type="email" id="page_account_view_login_email" class="form-control shadow-none" placeholder="Email address" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                <input type="password" id="page_account_view_login_password" class="form-control shadow-none" placeholder="Password" required="" style="margin-bottom: 20px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
                 <div>
                     <label style="float: right;
     margin-bottom: 20px;font-size: 14px;">
                         <a href="#" onClick="showPageView('account','forgot_password');" style="color: rgb(142, 142, 142);">Forgot password?</a>
                     </label>
                 </div>
-                <button class="btn btn-dark btn-block shadow-none" type="submit" style="border-radius: unset;height: 48px;margin-bottom:20px">Sign in</button>
+                <button class="btn btn-dark btn-block shadow-none" type="submit" style="border-radius: unset;height: 48px;margin-bottom:20px" onclick="account_login()">Sign in</button>
                 <div>
                     <div class="register-link">
                         <p style="font-size: 14px;color: rgb(142, 142, 142);text-align: center;">
@@ -141,11 +147,11 @@
                 <div class="form-group">
                     <select class="form-control shadow-none" id="exampleFormControlSelect1" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
                         <script>
-                            var year = new Date().getFullYear();
-                            for (i = 0; i < 100; i++) {
-                                $("#exampleFormControlSelect1").append("<option>"+(year-i)+"</option>");
-                            }
-                        </script>
+                                var year = new Date().getFullYear();
+                                for (i = 0; i < 100; i++) {
+                                    $("#exampleFormControlSelect1").append("<option>" + (year - i) + "</option>");
+                                }
+                            </script>
                     </select>
                 </div>
             </div>
@@ -161,7 +167,7 @@
         </div>
     </div>
 </div>
-</div>
+
 
 <div id="page_welcome" style="display:none" class="unselectable">
     <div id="backgroundImage">
@@ -179,6 +185,12 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div id="page_dashboard" style="display:none" class="unselectable">
+    <div class="page_content">
+        123213
     </div>
 </div>
 
@@ -212,6 +224,19 @@
     setTimeout(function() {
         showPage("welcome");
     }, 1000);
+
+    //////////////////////
+
+    function account_login(){
+        let email = $( "#page_account_view_login_email" ).val();
+        let password = $( "#page_account_view_login_password" ).val();
+        $("#page_loading").show();
+        Android.Account_Login(email,password);
+    }
+
+    function account_login_native(){
+        $("#page_loading").hide();
+    }
 </script>
 
 </html>

@@ -48,6 +48,10 @@
         "source": "E:\\Runme\\Client\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_background.png"
     },
     {
+        "merged": "E:\\Runme\\Client\\app\\build\\intermediates\\res\\merged\\debug\\xml_network_security_config.xml.flat",
+        "source": "E:\\Runme\\Client\\app\\src\\main\\res\\xml\\network_security_config.xml"
+    },
+    {
         "merged": "E:\\Runme\\Client\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
         "source": "E:\\Runme\\Client\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
