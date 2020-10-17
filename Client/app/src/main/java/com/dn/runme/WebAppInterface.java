@@ -8,13 +8,16 @@ import android.widget.Toast;
 
 import com.dn.runme.model.API;
 import com.dn.runme.model.Account;
+import com.dn.runme.model.Device;
 import com.dn.runme.model.MD5;
 import com.dn.runme.model.Script;
+import com.dn.runme.model.SocketCommand;
 import com.dn.runme.model.Time;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -206,4 +209,152 @@ public class WebAppInterface {
         }).start();
     }
 
+    @JavascriptInterface
+    public void Account_Script_Editor(final String id) {
+        try {
+            Map<String, Object> parameters = new LinkedHashMap<>();
+            parameters.put("Token", Account.Token);
+            parameters.put("ID", id);
+
+            final JSONObject request = new JSONObject(API.Request.Make("Script", "Get", parameters));
+
+            if (request.getInt("Status") == 0) {
+
+                String[] lines = request.getString("Content").split(System.getProperty("line.separator"));
+
+                int i = 0;
+
+                for (final String s : lines) {
+                    if(i++ == lines.length -1){
+                        System.out.println(123);
+                        MainActivity.webView.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    MainActivity.webView.loadUrl("javascript:page_dashboard_view_script_editor_append('" + s + "',false);page_dashboard_view_script_editor.focus();");
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                    } else {
+                        MainActivity.webView.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    MainActivity.webView.loadUrl("javascript:page_dashboard_view_script_editor_append_newline('" + s + "',false);page_dashboard_view_script_editor.focus();");
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                    }
+                }
+
+                MainActivity.webView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            MainActivity.webView.loadUrl("javascript:account_script_editor_set_current('"+id+"','"+request.getString("Name")+"');");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
+            } else {
+                showToast("Open failed.");
+            }
+
+        } catch (Exception ex) {
+            showToast("Open failed.");
+            ex.printStackTrace();
+        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                MainActivity.webView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        MainActivity.webView.loadUrl("javascript:account_script_editor_callback()");
+                    }
+                });
+            }
+        }).start();
+    }
+
+    public static Device.Server dsv;
+
+    @JavascriptInterface
+    public void Account_Script_Execute(final String id) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    dsv = new Device.Server();
+                    dsv.Connect();
+
+                    SocketCommand skcz = new SocketCommand();
+                    skcz.Command.add("Script");
+                    skcz.Command.add("Execute");
+                    skcz.Parameter.put("ID", id);
+                    dsv.Command_Send(skcz);
+
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                Thread.sleep(1000);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            MainActivity.webView.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    MainActivity.webView.loadUrl("javascript:page_dashboard_view_script_editor_execute_callback()");
+                                }
+                            });
+                        }
+                    }).start();
+
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+    @JavascriptInterface
+    public void Account_Script_Stop(){
+        dsv.Disconnect();
+        while(dsv.TConnect.isAlive()) {
+            try {
+                dsv.TConnect.interrupt();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                MainActivity.webView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        MainActivity.webView.loadUrl("javascript:page_dashboard_view_script_editor_terminal_stop_callback()");
+                    }
+                });
+            }
+        }).start();
+
+    }
 }

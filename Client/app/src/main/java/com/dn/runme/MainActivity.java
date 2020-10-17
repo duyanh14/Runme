@@ -13,7 +13,18 @@ import android.webkit.WebView;
 
 import com.dn.runme.model.API;
 import com.dn.runme.model.Account;
+import com.dn.runme.model.SocketCommand;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.EOFException;
+import java.io.StreamCorruptedException;
+import java.net.ConnectException;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.net.SocketAddress;
+import java.net.SocketException;
+import java.net.SocketTimeoutException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -45,19 +56,9 @@ public class MainActivity extends AppCompatActivity {
         webView.loadUrl("file:///android_asset/index.html?account_login="+account_login);
 
 
-//        <input type="button" value="Say hello" onClick="showAndroidToast('Hello!')" />
-//        <script type="text/javascript">
-//                        function showAndroidToast(toast) {
-//                    Android.showToast(toast);
-//                }
-//        </script>
+
     }
 
-    public boolean onKeyDown(int keycode, KeyEvent event) {
-        if (keycode == KeyEvent.KEYCODE_BACK) {
-            moveTaskToBack(true);
-        }
-        return super.onKeyDown(keycode, event);
-    }
+
 
 }

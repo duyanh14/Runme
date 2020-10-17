@@ -89,7 +89,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 62px;
     position: fixed;
     width: 100%;">
-        <button type="button" class="btn btn-light shadow-none" onclick="showPage('welcome')" style="border-radius: unset;width:50px"><i class="fas fa-arrow-left"></i>
+        <button type="button" class="btn btn-light shadow-none" onclick="showPage('welcome')" style="border-radius: unset;width:50px;height: 34px;"><i class="fas fa-arrow-left"></i>
         </button>
     </nav>
 
@@ -210,11 +210,11 @@
     position: fixed;
     width: 100%;">
             <div>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;width:50px"><i class="fas fa-file"></i>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;width:50px;height: 34px;"><i class="fas fa-file"></i>
                 </button>
             </div>
             <div>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPageView('dashboard','account')" style="border-radius: unset;width:50px"><i class="fas fa-user"></i>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPageView('dashboard','account')" style="border-radius: unset;width:50px;height: 34px;"><i class="fas fa-user"></i>
                 </button>
             </div>
         </nav>
@@ -252,11 +252,11 @@
     position: fixed;
     width: 100%;">
             <div>
-                <button type="button" class="btn btn-dark shadow-none" id="page_dashboard_view_script_details_save" onclick="account_script_details_save()" style="border-radius: unset;width:50px"><i class="fas fa-save"></i>
+                <button type="button" class="btn btn-dark shadow-none" id="page_dashboard_view_script_details_save" onclick="account_script_details_save()" style="border-radius: unset;width:50px;height: 34px;"><i class="fas fa-save"></i>
                 </button>
             </div>
             <div>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPageView('dashboard','script')" style="border-radius: unset;width:50px"><i class="fas fa-window-close"></i>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPageView('dashboard','script')" style="border-radius: unset;width:50px;height: 34px;"><i class="fas fa-window-close"></i>
                 </button>
             </div>
         </nav>
@@ -310,7 +310,7 @@
 
             </div>
             <div>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPageView('dashboard','script')" style="border-radius: unset;width:50px"><i class="fas fa-window-close"></i>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPageView('dashboard','script')" style="border-radius: unset;width:50px;height: 34px;"><i class="fas fa-window-close"></i>
                 </button>
             </div>
         </nav>
@@ -358,30 +358,65 @@
     position: fixed;
     width: 100%;">
             <div>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPageView('dashboard','script')" style="border-radius: unset;width:50px"><i class="fas fa-arrow-left"></i>
+                <button type="button" class="btn btn-dark shadow-none" onclick="showPageView('dashboard','script')" style="border-radius: unset;width:50px;height: 34px;"><i class="fas fa-arrow-left"></i>
                 </button>
-                <label style="margin: auto;
+                <label id="page_dashboard_view_script_editor_name" style="margin: auto;
     font-size: 16px;
     color: black;
     margin-left: 13px;
     /* background: red; */
-    margin-top: 3px;
+    margin-top: 4px;
     position: absolute;
-}">Bài tập ng</label>
+}"></label>
             </div>
             <div>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="width:50px;border-radius: unset;margin-right: 10px;"><i class="fas fa-save"></i>
+                <button type="button" class="btn btn-dark shadow-none" onclick="page_dashboard_view_script_editor_save()" style="width:50px;border-radius: unset;margin-right: 10px;height: 34px;;"><i class="fas fa-save"></i>
                 </button>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPageView('dashboard','script')" style="width:50px;border-radius: unset;"><i class="fas fa-play"></i>
+                <button type="button" class="btn btn-dark shadow-none" onclick="page_dashboard_view_script_editor_execute()" style="width:50px;border-radius: unset;height: 34px;"><i class="fas fa-play"></i>
                 </button>
             </div>
         </nav>
         <div class="page_content">
-            <button type="button" class="btn btn-dark shadow-none" onclick="page_dashboard_view_script_editor_tab()" style="width:50px;border-radius: unset;margin-bottom: 10px"><i class="fas fa-indent"></i>
+            <button type="button" class="btn btn-dark shadow-none" onclick="page_dashboard_view_script_editor_tab()" style="width:50px;border-radius: unset;margin-bottom: 10px;float:right;height: 34px;"><i class="fas fa-indent"></i>
             </button>
             <textarea id="page_dashboard_view_script_editor_content" style="height:100%"></textarea>
         </div>
     </div>
+
+
+    <div class="page_view" id="page_dashboard_view_script_terminal">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 62px;
+    position: fixed;
+    width: 100%;">
+            <div>
+                <button type="button" class="btn btn-dark shadow-none" onclick="page_dashboard_view_script_editor_terminal_stop();" style="border-radius: unset;width:50px;height: 34px;"><i class="fas fa-stop"></i>
+                </button>
+            </div>
+            <div>
+
+            </div>
+        </nav>
+        <div class="page_content" style="background-color:black;">
+            <div style="margin-right: 0px; display: flex;
+    justify-content: space-between;  ">
+
+                    <input type="text" id="page_dashboard_view_script_details_name" class="form-control shadow-none" placeholder="Input something" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;margin-right: 10px;">
+                    <button type="button" class="btn btn-dark shadow-none" onclick="page_dashboard_view_script_editor_terminal_stop();" style="border-radius: unset;width:50px;height:48px;"><i class="fas fa-paper-plane"></i>
+                    </button>
+            </div>
+            <textarea id="page_dashboard_view_script_terminal_content" readonly style="height: calc(100% - 140px);
+    color: white;
+    background: black;
+    width: 100%;
+    border-color: rgb(208 208 208);
+    outline: none;
+padding: 10px;">
+</textarea>
+        </div>
+    </div>
+
+
 </div>
 
 </body>
@@ -393,15 +428,24 @@
             version: 3,
             singleLineStringErrors: false
         },
+      autoRefresh:true,
+      lineWrapping: true,
         lineNumbers: true,
         indentUnit: 4,
         matchBrackets: true
     });
-    page_dashboard_view_script_editor.setSize("100%", "83%");
-
-
+    page_dashboard_view_script_editor.setSize("100%", "81%");
     $("#page_dashboard").hide();
     $("#page_dashboard_view_script_editor").hide();
+
+    function aaa(){
+
+
+var editor=$( '#page_dashboard_view_script_editor_content' );
+editor[0].focus();
+// or
+document.getElementById( 'page_dashboard_view_script_editor_content' ).focus();
+}
 </script>
 
 <script>
@@ -451,8 +495,7 @@
         setTimeout(function() {
             showPage("dashboard");
         }, 1000);
-                            showPageView("dashboard", "script_editor");
-
+        showPageView("dashboard", "script_terminal");
     } else if (parameter_account_login == 1) {
         account_login_callback(0)
     }
@@ -524,10 +567,22 @@
     }
 
     function account_script_editor(id) {
-        Android.showToast(id);
-
+        $("#page_loading").show();
         showPageView('dashboard', 'script_editor');
+        page_dashboard_view_script_editor.setValue("");
+        page_dashboard_view_script_editor.clearHistory();
+        Android.Account_Script_Editor(id);
     }
+
+    function account_script_editor_callback() {
+         $("#page_loading").hide();
+    }
+
+    function account_script_editor_set_current(id,name){
+           $("#page_dashboard_view_script_editor_name").data("id",id);
+           $("#page_dashboard_view_script_editor_name").text(name);
+    }
+
 
     function account_script_list_put(id, name, language) {
         $html = '<tr data-id="' + id + '">';
@@ -544,12 +599,69 @@
         account_script_index += 1;
     }
 
+    function page_dashboard_view_script_editor_save() {
+    }
+
+    function page_dashboard_view_script_editor_save_callback() {
+
+    }
+
+    function page_dashboard_view_script_editor_execute(){
+        $("#page_loading").show();
+        page_dashboard_view_script_editor_terminal_clear();
+        Android.Account_Script_Execute($("#page_dashboard_view_script_editor_name").data("id"));
+    }
+
+    function page_dashboard_view_script_editor_execute_callback(){
+        showPageView("dashboard","script_terminal");
+        $("#page_loading").hide();
+    }
+
+    function page_dashboard_view_script_editor_terminal_append(value){
+         $('#page_dashboard_view_script_terminal_content').val("> "+value+$('#page_dashboard_view_script_terminal_content').val());
+    }
+
+    function page_dashboard_view_script_editor_terminal_clear(){
+        $('#page_dashboard_view_script_terminal_content').val('')
+    }
+
+    function page_dashboard_view_script_editor_terminal_stop(){
+        $("#page_loading").show();
+        Android.Account_Script_Stop();
+    }
+
+    function page_dashboard_view_script_editor_terminal_stop_callback(){
+         showPageView('dashboard','script_editor');
+         $("#page_loading").hide();
+    }
+
     function page_dashboard_view_script_editor_tab(){
-        var doc = page_dashboard_view_script_editor.getDoc();
+        page_dashboard_view_script_editor_append("    ",true);
+    }
+
+    function page_dashboard_view_script_editor_append(str,f) {
+      var doc = page_dashboard_view_script_editor.getDoc();
         var cursor = doc.getCursor();
-        doc.replaceRange("    ", cursor);
-        page_dashboard_view_script_editor.focus();
-        page_dashboard_view_script_editor.setCursor(page_dashboard_view_script_editor.lineCount(), 0);
+        doc.replaceRange(str, cursor);
+        if (f) {
+            page_dashboard_view_script_editor.focus();
+            page_dashboard_view_script_editor.setCursor(page_dashboard_view_script_editor.lineCount(), 0);
+        }
+    }
+
+    function page_dashboard_view_script_editor_append_newline(str,f) {
+        var doc = page_dashboard_view_script_editor.getDoc();
+        var cursor = doc.getCursor(); // gets the line number in the cursor position
+        var line = doc.getLine(cursor.line); // get the line contents
+        var pos = { // create a new object to avoid mutation of the original selection
+            line: cursor.line,
+            ch: line.length - 1 // set the character position to the end of the line
+        }
+        doc.replaceRange(str+'\n', pos); // adds a new line
+        if (f) {
+            page_dashboard_view_script_editor.focus();
+            page_dashboard_view_script_editor.setCursor(page_dashboard_view_script_editor.lineCount(), 0);
+        }
     }
 </script>
 

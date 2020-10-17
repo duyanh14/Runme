@@ -88,6 +88,7 @@ public class Script {
             rtn.put("Language", script.Language);
             rtn.put("DateModified", script.DateModified);
             rtn.put("DateCreated", script.DateCreated);
+            rtn.put("Content", script.Content);
 
             rtn.put("Status", 0);
             rtn.remove("Message");
