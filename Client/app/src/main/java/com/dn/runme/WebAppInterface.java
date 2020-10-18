@@ -239,18 +239,18 @@ public class WebAppInterface {
             final JSONObject request = new JSONObject(API.Request.Make("Script", "Get", parameters));
 
             if (request.getInt("Status") == 0) {
+                System.out.println(request.getString("Content"));
                 String[] lines = request.getString("Content").split(System.getProperty("line.separator"));
 
                 int i = 0;
 
                 for (final String s : lines) {
                     if(i++ == lines.length -1){
-                        System.out.println(123);
                         MainActivity.webView.post(new Runnable() {
                             @Override
                             public void run() {
                                 try {
-                                    MainActivity.webView.loadUrl("javascript:page_dashboard_view_script_editor_append('" + s + "',false);page_dashboard_view_script_editor.focus();");
+                                    MainActivity.webView.loadUrl("javascript:page_dashboard_view_script_editor_append('" + s + "',false);");
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
@@ -261,7 +261,7 @@ public class WebAppInterface {
                             @Override
                             public void run() {
                                 try {
-                                    MainActivity.webView.loadUrl("javascript:page_dashboard_view_script_editor_append_newline('" + s + "',false);page_dashboard_view_script_editor.focus();");
+                                    MainActivity.webView.loadUrl("javascript:page_dashboard_view_script_editor_append_newline('" + s + "',false);");
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }

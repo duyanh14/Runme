@@ -210,7 +210,7 @@
     position: fixed;
     width: 100%;">
             <div>
-                <button type="button" class="btn btn-dark shadow-none" onclick="showPage('welcome')" style="border-radius: unset;width:50px;height: 34px;"><i class="fas fa-file"></i>
+                <button type="button" class="btn btn-dark shadow-none" onclick="account_script_create();" style="border-radius: unset;width:50px;height: 34px;"><i class="fas fa-file"></i>
                 </button>
             </div>
             <div>
@@ -265,7 +265,7 @@
                 <h1 class="h3 mb-3 font-weight-normal" style="
                     text-align: center;
                     padding: 22px;font-size: 22px;
-                ">Script / Details</h1>
+                " id="page_dashboard_view_script_details_page_name">Script / Details</h1>
 
                 <div class="row" style="margin-right: 0px;">
                     <div class="col-8" style="
@@ -386,7 +386,7 @@
 
     <div class="page_view" id="page_dashboard_view_script_terminal" style="display:none">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 62px;
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 62px;
     position: fixed;
     width: 100%;">
             <div>
@@ -401,9 +401,9 @@
             <div style="margin-right: 0px; display: flex;
     justify-content: space-between;  ">
 
-                    <input type="text" id="page_dashboard_view_script_terminal_input" class="form-control shadow-none" placeholder="Input something" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;margin-right: 10px;">
-                    <button type="button" class="btn btn-dark shadow-none" onclick="page_dashboard_view_script_terminal_input_send();" style="border-radius: unset;width:50px;height:48px;"><i class="fas fa-paper-plane"></i>
-                    </button>
+                <input type="text" id="page_dashboard_view_script_terminal_input" class="form-control shadow-none" placeholder="Input something" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;margin-right: 10px;">
+                <button type="button" class="btn btn-dark shadow-none" onclick="page_dashboard_view_script_terminal_input_send();" style="border-radius: unset;width:50px;height:48px;"><i class="fas fa-paper-plane"></i>
+                </button>
             </div>
             <textarea id="page_dashboard_view_script_terminal_content" readonly style="height: calc(100% - 140px);
     color: white;
@@ -412,7 +412,7 @@
     border-color: rgb(208 208 208);
     outline: none;
 padding: 10px;">
-</textarea>
+                </textarea>
         </div>
     </div>
 
@@ -421,15 +421,14 @@ padding: 10px;">
 
 </body>
 <script>
-
     var page_dashboard_view_script_editor = CodeMirror.fromTextArea(document.getElementById("page_dashboard_view_script_editor_content"), {
         mode: {
             name: "python",
             version: 3,
             singleLineStringErrors: false
         },
-      autoRefresh:true,
-      lineWrapping: true,
+        autoRefresh: true,
+        lineWrapping: true,
         lineNumbers: true,
         indentUnit: 4,
         matchBrackets: true
@@ -437,8 +436,6 @@ padding: 10px;">
     page_dashboard_view_script_editor.setSize("100%", "81%");
     $("#page_dashboard").hide();
     $("#page_dashboard_view_script_editor").hide();
-
-
 </script>
 
 <script>
@@ -519,7 +516,7 @@ padding: 10px;">
         showPage("welcome");
     }
 
-    function account_logout_callback(){
+    function account_logout_callback() {
         $("#page_loading").hide();
     }
 
@@ -532,6 +529,8 @@ padding: 10px;">
 
     function account_script_details(id) {
         $("#page_loading").show();
+        $('#page_dashboard_view_script_details_page_name').text('Script / Details');
+        $('#page_dashboard_view_script_details_date').show();
         Android.Account_Script_Details(id);
     }
 
@@ -555,7 +554,7 @@ padding: 10px;">
     }
 
     function account_script_details_save_callback() {
-        showPageView('dashboard','script');
+        showPageView('dashboard', 'script');
         $("#page_loading").hide();
     }
 
@@ -573,12 +572,12 @@ padding: 10px;">
     }
 
     function account_script_editor_callback() {
-         $("#page_loading").hide();
+        $("#page_loading").hide();
     }
 
-    function account_script_editor_set_current(id,name){
-           $("#page_dashboard_view_script_editor_name").data("id",id);
-           $("#page_dashboard_view_script_editor_name").text(name);
+    function account_script_editor_set_current(id, name) {
+        $("#page_dashboard_view_script_editor_name").data("id", id);
+        $("#page_dashboard_view_script_editor_name").text(name);
     }
 
 
@@ -599,54 +598,62 @@ padding: 10px;">
 
     function page_dashboard_view_script_editor_save() {
         $("#page_loading").show();
-        Android.Account_Script_Save($("#page_dashboard_view_script_editor_name").data("id"),page_dashboard_view_script_editor.getValue());
+        Android.Account_Script_Save($("#page_dashboard_view_script_editor_name").data("id"), page_dashboard_view_script_editor.getValue());
     }
 
     function page_dashboard_view_script_editor_save_callback() {
         $("#page_loading").hide();
     }
 
-    function page_dashboard_view_script_editor_execute(){
+    function page_dashboard_view_script_editor_execute() {
         $("#page_loading").show();
         page_dashboard_view_script_editor_terminal_clear();
-        Android.Account_Script_Execute($("#page_dashboard_view_script_editor_name").data("id"),page_dashboard_view_script_editor.getValue());
+        Android.Account_Script_Execute($("#page_dashboard_view_script_editor_name").data("id"), page_dashboard_view_script_editor.getValue());
     }
 
-    function page_dashboard_view_script_editor_execute_callback(){
-        showPageView("dashboard","script_terminal");
+    function page_dashboard_view_script_editor_execute_callback() {
+        showPageView("dashboard", "script_terminal");
         $("#page_loading").hide();
     }
 
-    function page_dashboard_view_script_editor_terminal_append(value){
-         $('#page_dashboard_view_script_terminal_content').val(">>  "+value+"\r\n"+$('#page_dashboard_view_script_terminal_content').val());
+    function page_dashboard_view_script_editor_terminal_append(value) {
+        $('#page_dashboard_view_script_terminal_content').val(">>  " + value + "\r\n" + $('#page_dashboard_view_script_terminal_content').val());
     }
 
-    function page_dashboard_view_script_editor_terminal_clear(){
+    function page_dashboard_view_script_editor_terminal_clear() {
         $('#page_dashboard_view_script_terminal_content').val('')
     }
 
-    function page_dashboard_view_script_editor_script_terminal_stop(){
+    function page_dashboard_view_script_editor_script_terminal_stop() {
         $("#page_loading").show();
         Android.Account_Script_Terminal_Stop();
     }
 
-    function page_dashboard_view_script_editor_script_terminal_stop_callback(){
-         showPageView('dashboard','script_editor');
-         $("#page_loading").hide();
+    function page_dashboard_view_script_editor_script_terminal_stop_callback() {
+        showPageView('dashboard', 'script_editor');
+        $("#page_loading").hide();
     }
 
-    function page_dashboard_view_script_terminal_input_send(){
+    function page_dashboard_view_script_terminal_input_send() {
         Android.Account_Script_Terminal_Input_Send($("#page_dashboard_view_script_terminal_input").val());
         page_dashboard_view_script_editor_terminal_append($("#page_dashboard_view_script_terminal_input").val());
         $("#page_dashboard_view_script_terminal_input").val("");
     }
 
-    function page_dashboard_view_script_editor_tab(){
-        page_dashboard_view_script_editor_append("    ",true);
+    function account_script_create() {
+        $('#page_dashboard_view_script_details_page_name').text('Script / Add');
+        $('#page_dashboard_view_script_details_name').val('');
+        $('#page_dashboard_view_script_details_language').val(1);
+        $('#page_dashboard_view_script_details_date').hide();
+        showPageView('dashboard', 'script_details');
     }
 
-    function page_dashboard_view_script_editor_append(str,f) {
-      var doc = page_dashboard_view_script_editor.getDoc();
+    function page_dashboard_view_script_editor_tab() {
+        page_dashboard_view_script_editor_append("    ", true);
+    }
+
+    function page_dashboard_view_script_editor_append(str, f) {
+        var doc = page_dashboard_view_script_editor.getDoc();
         var cursor = doc.getCursor();
         doc.replaceRange(str, cursor);
         if (f) {
@@ -655,7 +662,7 @@ padding: 10px;">
         }
     }
 
-    function page_dashboard_view_script_editor_append_newline(str,f) {
+    function page_dashboard_view_script_editor_append_newline(str, f) {
         var doc = page_dashboard_view_script_editor.getDoc();
         var cursor = doc.getCursor(); // gets the line number in the cursor position
         var line = doc.getLine(cursor.line); // get the line contents
@@ -663,7 +670,7 @@ padding: 10px;">
             line: cursor.line,
             ch: line.length - 1 // set the character position to the end of the line
         }
-        doc.replaceRange(str+'\n', pos); // adds a new line
+        doc.replaceRange(str + '\n', pos); // adds a new line
         if (f) {
             page_dashboard_view_script_editor.focus();
             page_dashboard_view_script_editor.setCursor(page_dashboard_view_script_editor.lineCount(), 0);

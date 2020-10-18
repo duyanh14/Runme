@@ -95,8 +95,6 @@ class Server {
                                 skc.Parameter.put("Status", 0);
                                 dos.writeUTF(skc.Parse());
 
-                                System.out.println("ss");
-
                                 Device device = new Device(account);
                                 device.Connect(s, dis, dos);
                                 

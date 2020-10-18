@@ -9,6 +9,7 @@ import com.datastax.driver.core.ResultSet;
 import com.datastax.driver.core.Row;
 import com.datastax.driver.core.Session;
 import static com.dn.runme.model.Account.Initialization;
+import com.dn.runme.model.Crypt.RC4;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import org.json.JSONArray;
@@ -132,7 +133,7 @@ public class Script {
 
             script.ID = rs.getString("id");
             script.Name = rs.getString("name");
-            script.Content = rs.getString("content");
+            script.Content = new RC4(RC4.Key()).Decrypt(rs.getString("content"));
             script.DateModified = rs.getLong("date_modified");
             script.DateCreated = rs.getLong("date_created");
             script.Language = rs.getInt("language");
@@ -190,8 +191,11 @@ public class Script {
             }
 
             if (content != null) {
-                sess.execute("UPDATE script SET content = '" + content + "' WHERE id = '" + id + "' ");
+                sess.execute("UPDATE script SET content = '" + new RC4(RC4.Key()).Encrypt(content) + "' WHERE id = '" + id + "' ");
             }
+            
+            sess.execute("UPDATE script SET date_modified = " + Time.Unix.Now() + " WHERE id = '" + id + "' ");
+
 
             rtn.put("Status", 0);
             rtn.remove("Message");
