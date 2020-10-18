@@ -54,8 +54,8 @@ public class Script {
         }
         return rtn;
     }
-    
-     public static JSONObject Get(String id, String token) {
+
+    public static JSONObject Get(String id, String token) {
         JSONObject rtn = new JSONObject();
         try {
             rtn.put("Status", 1);
@@ -68,7 +68,7 @@ public class Script {
                 rtn.put("Message", "Can't authentication account.");
                 return rtn;
             }
-            
+
             Session sess = Database.Connect();
 
             com.dn.runme.dto.Script script = Script.Get_ID(id);
@@ -77,13 +77,13 @@ public class Script {
                 rtn.put("Message", "Script not exist.");
                 return rtn;
             }
-            
+
             if (!script.Account.equals(account.ID)) {
-                rtn.put("Status",4);
+                rtn.put("Status", 4);
                 rtn.put("Message", "Can't authentication account.");
                 return rtn;
             }
-            
+
             rtn.put("Name", script.Name);
             rtn.put("Language", script.Language);
             rtn.put("DateModified", script.DateModified);
@@ -97,7 +97,6 @@ public class Script {
         }
         return rtn;
     }
-
 
     public static com.dn.runme.dto.Script Get_ID(String id) {
         try {
@@ -153,7 +152,7 @@ public class Script {
         return null;
     }
 
-    public static JSONObject Save(String id, String name, String lang, String token) {
+    public static JSONObject Save(String id, String name, String lang, String content, String token) {
         JSONObject rtn = new JSONObject();
         try {
             rtn.put("Status", 1);
@@ -166,7 +165,7 @@ public class Script {
                 rtn.put("Message", "Can't authentication account.");
                 return rtn;
             }
-            
+
             Session sess = Database.Connect();
 
             com.dn.runme.dto.Script script = Script.Get_ID(id);
@@ -175,14 +174,24 @@ public class Script {
                 rtn.put("Message", "Script not exist.");
                 return rtn;
             }
-            
+
             if (!script.Account.equals(account.ID)) {
-                rtn.put("Status",4);
+                rtn.put("Status", 4);
                 rtn.put("Message", "Can't authentication account.");
                 return rtn;
             }
-            
-            sess.execute("UPDATE script SET name = '" + name + "', language = " + lang + " WHERE id = '" + id + "' ");
+
+            if (name != null) {
+                sess.execute("UPDATE script SET name = '" + name + "' WHERE id = '" + id + "' ");
+            }
+
+            if (lang != null) {
+                sess.execute("UPDATE script SET language = " + lang + " WHERE id = '" + id + "' ");
+            }
+
+            if (content != null) {
+                sess.execute("UPDATE script SET content = '" + content + "' WHERE id = '" + id + "' ");
+            }
 
             rtn.put("Status", 0);
             rtn.remove("Message");

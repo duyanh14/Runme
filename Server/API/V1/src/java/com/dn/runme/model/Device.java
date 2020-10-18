@@ -108,18 +108,33 @@ public class Device {
 
                         ProcessBuilder builder = new ProcessBuilder("cmd.exe", "cd \"C:\\Users\\Duy\\Desktop\" && dir");
                         final Process p = builder.start();
-
+                        final Device device = this;
+                        
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
-                                try {
-                                    Thread.sleep(600000);
-                                    if (p.isAlive()) {
-                                        p.destroy();
+                                long startTime = System.currentTimeMillis(); //fetch starting time
+                                while (false || (System.currentTimeMillis() - startTime) < 600000) {
+                                    if (!p.isAlive()) {
+                                        break;
                                     }
+                                }
+                                try {
+                                    p.destroyForcibly().destroy();
+                                    p.destroy();
                                 } catch (Exception ex) {
                                     ex.printStackTrace();
                                 }
+                                try {
+                                    SocketCommand skc = new com.dn.runme.model.SocketCommand();
+                                    skc.Command.add("Script");
+                                    skc.Command.add("Output");
+                                    skc.Parameter.put("Content", "RUNME => PROCESS PUT OFF BECAUSE TIMEOUT");
+                                    Command_Send(skc);
+                                } catch (Exception ex) {
+                                    ex.printStackTrace();
+                                }
+                               device.Disconnect();
                             }
                         }).start();
 
@@ -133,11 +148,14 @@ public class Device {
                                 try {
                                     while ((line = reader.readLine()) != null) {
                                         if (i == 4) {
+                                            if (line.equals("")) {
+                                                continue;
+                                            }
                                             SocketCommand skc = new com.dn.runme.model.SocketCommand();
                                             skc.Command.add("Script");
                                             skc.Command.add("Output");
                                             skc.Parameter.put("Content", line.substring(line.indexOf(">") + ">".length()));
-                                            dos.writeUTF(skc.Parse());
+                                            Command_Send(skc);
                                         } else {
                                             i++;
                                         }
@@ -170,5 +188,23 @@ public class Device {
                 break;
         }
     }
+
+    private void Disconnect() {
+            try {
+                this.dis.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                this.dos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+             try {
+                this.s.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
 }

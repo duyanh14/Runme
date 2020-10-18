@@ -384,13 +384,13 @@
     </div>
 
 
-    <div class="page_view" id="page_dashboard_view_script_terminal">
+    <div class="page_view" id="page_dashboard_view_script_terminal" style="display:none">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 62px;
     position: fixed;
     width: 100%;">
             <div>
-                <button type="button" class="btn btn-dark shadow-none" onclick="page_dashboard_view_script_editor_terminal_stop();" style="border-radius: unset;width:50px;height: 34px;"><i class="fas fa-stop"></i>
+                <button type="button" class="btn btn-dark shadow-none" onclick="page_dashboard_view_script_editor_script_terminal_stop();" style="border-radius: unset;width:50px;height: 34px;"><i class="fas fa-stop"></i>
                 </button>
             </div>
             <div>
@@ -401,8 +401,8 @@
             <div style="margin-right: 0px; display: flex;
     justify-content: space-between;  ">
 
-                    <input type="text" id="page_dashboard_view_script_details_name" class="form-control shadow-none" placeholder="Input something" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;margin-right: 10px;">
-                    <button type="button" class="btn btn-dark shadow-none" onclick="page_dashboard_view_script_editor_terminal_stop();" style="border-radius: unset;width:50px;height:48px;"><i class="fas fa-paper-plane"></i>
+                    <input type="text" id="page_dashboard_view_script_terminal_input" class="form-control shadow-none" placeholder="Input something" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;margin-right: 10px;">
+                    <button type="button" class="btn btn-dark shadow-none" onclick="page_dashboard_view_script_terminal_input_send();" style="border-radius: unset;width:50px;height:48px;"><i class="fas fa-paper-plane"></i>
                     </button>
             </div>
             <textarea id="page_dashboard_view_script_terminal_content" readonly style="height: calc(100% - 140px);
@@ -438,14 +438,7 @@ padding: 10px;">
     $("#page_dashboard").hide();
     $("#page_dashboard_view_script_editor").hide();
 
-    function aaa(){
 
-
-var editor=$( '#page_dashboard_view_script_editor_content' );
-editor[0].focus();
-// or
-document.getElementById( 'page_dashboard_view_script_editor_content' ).focus();
-}
 </script>
 
 <script>
@@ -493,9 +486,8 @@ document.getElementById( 'page_dashboard_view_script_editor_content' ).focus();
 
     if (parameter_account_login == 0) {
         setTimeout(function() {
-            showPage("dashboard");
+            showPage("welcome");
         }, 1000);
-        showPageView("dashboard", "script_terminal");
     } else if (parameter_account_login == 1) {
         account_login_callback(0)
     }
@@ -522,8 +514,13 @@ document.getElementById( 'page_dashboard_view_script_editor_content' ).focus();
     }
 
     function account_logout() {
+        $("#page_loading").show();
         Android.Account_Logout();
         showPage("welcome");
+    }
+
+    function account_logout_callback(){
+        $("#page_loading").hide();
     }
 
     var account_script_index = 0;
@@ -558,6 +555,7 @@ document.getElementById( 'page_dashboard_view_script_editor_content' ).focus();
     }
 
     function account_script_details_save_callback() {
+        showPageView('dashboard','script');
         $("#page_loading").hide();
     }
 
@@ -600,16 +598,18 @@ document.getElementById( 'page_dashboard_view_script_editor_content' ).focus();
     }
 
     function page_dashboard_view_script_editor_save() {
+        $("#page_loading").show();
+        Android.Account_Script_Save($("#page_dashboard_view_script_editor_name").data("id"),page_dashboard_view_script_editor.getValue());
     }
 
     function page_dashboard_view_script_editor_save_callback() {
-
+        $("#page_loading").hide();
     }
 
     function page_dashboard_view_script_editor_execute(){
         $("#page_loading").show();
         page_dashboard_view_script_editor_terminal_clear();
-        Android.Account_Script_Execute($("#page_dashboard_view_script_editor_name").data("id"));
+        Android.Account_Script_Execute($("#page_dashboard_view_script_editor_name").data("id"),page_dashboard_view_script_editor.getValue());
     }
 
     function page_dashboard_view_script_editor_execute_callback(){
@@ -618,21 +618,27 @@ document.getElementById( 'page_dashboard_view_script_editor_content' ).focus();
     }
 
     function page_dashboard_view_script_editor_terminal_append(value){
-         $('#page_dashboard_view_script_terminal_content').val("> "+value+$('#page_dashboard_view_script_terminal_content').val());
+         $('#page_dashboard_view_script_terminal_content').val(">>  "+value+"\r\n"+$('#page_dashboard_view_script_terminal_content').val());
     }
 
     function page_dashboard_view_script_editor_terminal_clear(){
         $('#page_dashboard_view_script_terminal_content').val('')
     }
 
-    function page_dashboard_view_script_editor_terminal_stop(){
+    function page_dashboard_view_script_editor_script_terminal_stop(){
         $("#page_loading").show();
-        Android.Account_Script_Stop();
+        Android.Account_Script_Terminal_Stop();
     }
 
-    function page_dashboard_view_script_editor_terminal_stop_callback(){
+    function page_dashboard_view_script_editor_script_terminal_stop_callback(){
          showPageView('dashboard','script_editor');
          $("#page_loading").hide();
+    }
+
+    function page_dashboard_view_script_terminal_input_send(){
+        Android.Account_Script_Terminal_Input_Send($("#page_dashboard_view_script_terminal_input").val());
+        page_dashboard_view_script_editor_terminal_append($("#page_dashboard_view_script_terminal_input").val());
+        $("#page_dashboard_view_script_terminal_input").val("");
     }
 
     function page_dashboard_view_script_editor_tab(){

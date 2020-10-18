@@ -55,9 +55,9 @@ public class Script {
     
     @RequestMapping(value = "/Save", method = RequestMethod.POST)
     @ResponseBody
-    public String Save(@RequestParam(value = "ID", required = true) String id,@RequestParam(value = "Name", required = true) String name, @RequestParam(value = "Language", required = true) String lang, @RequestParam(value = "Token", required = true) String token) {
+    public String Save(@RequestParam(value = "ID", required = true) String id,@RequestParam(value = "Name", required = false) String name, @RequestParam(value = "Language", required = false) String lang,  @RequestParam(value = "Content", required = false) String content, @RequestParam(value = "Token", required = true) String token) {
         try {
-            return com.dn.runme.model.Script.Save(id,name,lang,token).toString();
+            return com.dn.runme.model.Script.Save(id,name,lang,content,token).toString();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

@@ -80,6 +80,26 @@ public class WebAppInterface {
     @JavascriptInterface
     public void Account_Logout() {
         Account.Logout();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                MainActivity.webView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            MainActivity.webView.loadUrl("javascript:account_logout_callback()");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+        }).start();
     }
 
     @JavascriptInterface
@@ -125,7 +145,7 @@ public class WebAppInterface {
                     @Override
                     public void run() {
                         try {
-                            Thread.sleep(1000);
+                            Thread.sleep(500);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -195,7 +215,7 @@ public class WebAppInterface {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(500);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -219,7 +239,6 @@ public class WebAppInterface {
             final JSONObject request = new JSONObject(API.Request.Make("Script", "Get", parameters));
 
             if (request.getInt("Status") == 0) {
-
                 String[] lines = request.getString("Content").split(System.getProperty("line.separator"));
 
                 int i = 0;
@@ -274,7 +293,7 @@ public class WebAppInterface {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(500);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -291,11 +310,21 @@ public class WebAppInterface {
     public static Device.Server dsv;
 
     @JavascriptInterface
-    public void Account_Script_Execute(final String id) {
+    public void Account_Script_Execute(final String id, final String content) {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
+
+                    Map<String, Object> parameters = new LinkedHashMap<>();
+                    parameters.put("Token", Account.Token);
+                    parameters.put("ID", id);
+                    parameters.put("Content", content);
+
+                    JSONObject request = new JSONObject(API.Request.Make("Script", "Save", parameters));
+
+                    if (request.getInt("Status") == 0) {
+
                     dsv = new Device.Server();
                     dsv.Connect();
 
@@ -309,7 +338,7 @@ public class WebAppInterface {
                         @Override
                         public void run() {
                             try {
-                                Thread.sleep(1000);
+                                Thread.sleep(500);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -321,6 +350,26 @@ public class WebAppInterface {
                             });
                         }
                     }).start();
+                    } else {
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    Thread.sleep(500);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+
+                                MainActivity.webView.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        showToast("Can't save this script.");
+                                        MainActivity.webView.loadUrl("javascript:page_dashboard_view_script_editor_script_terminal_stop_callback()");
+                                    }
+                                });
+                            }
+                        }).start();
+                    }
 
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -330,7 +379,7 @@ public class WebAppInterface {
     }
 
     @JavascriptInterface
-    public void Account_Script_Stop(){
+    public void Account_Script_Terminal_Stop(){
         dsv.Disconnect();
         while(dsv.TConnect.isAlive()) {
             try {
@@ -343,18 +392,72 @@ public class WebAppInterface {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(500);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 MainActivity.webView.post(new Runnable() {
                     @Override
                     public void run() {
-                        MainActivity.webView.loadUrl("javascript:page_dashboard_view_script_editor_terminal_stop_callback()");
+                        MainActivity.webView.loadUrl("javascript:page_dashboard_view_script_editor_script_terminal_stop_callback()");
                     }
                 });
             }
         }).start();
+
+    }
+
+    @JavascriptInterface
+    public void Account_Script_Terminal_Input_Send(String s){
+        try {
+            SocketCommand skc = new SocketCommand();
+            skc.Command.add("Script");
+            skc.Command.add("Input");
+            skc.Parameter.put("Content", s);
+            dsv.Command_Send(skc);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    @JavascriptInterface
+    public void Account_Script_Save(String id, String content) {
+        try {
+
+            Map<String, Object> parameters = new LinkedHashMap<>();
+            parameters.put("Token", Account.Token);
+            parameters.put("ID", id);
+            parameters.put("Content", content);
+
+            JSONObject request = new JSONObject(API.Request.Make("Script", "Save", parameters));
+
+            if (request.getInt("Status") == 0) {
+                showToast("Saved.");
+            } else {
+                showToast("Save failed.");
+            }
+
+        } catch (Exception ex) {
+            showToast("Save failed.");
+            ex.printStackTrace();
+        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(500);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                MainActivity.webView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        MainActivity.webView.loadUrl("javascript:page_dashboard_view_script_editor_save_callback()");
+                    }
+                });
+            }
+        }).start();
+
 
     }
 }
