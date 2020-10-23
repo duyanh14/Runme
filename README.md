@@ -1,2 +1,2 @@
 # Runme
- Run your code flexibly!
+MindX hackathon project
