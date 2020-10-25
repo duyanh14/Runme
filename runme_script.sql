@@ -1,3 +1,18 @@
+create table script
+(
+    id            text primary key,
+    account       text,
+    content       text,
+    date_created  bigint,
+    date_modified bigint,
+    language      int,
+    name          text
+)
+    with caching = {'keys': 'ALL', 'rows_per_partition': 'NONE'}
+     and compaction = {'max_threshold': '32', 'min_threshold': '4', 'class': 'org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy'}
+     and compression = {'class': 'org.apache.cassandra.io.compress.LZ4Compressor', 'chunk_length_in_kb': '64'}
+     and dclocal_read_repair_chance = 0.1;
+
 insert into runme.script (id, account, content, date_created, date_modified, language, name) values ('9c11c937ac92ff30b24c8f2dddb66a7c', 01042001, '', 1602997101, 1602997101, 0, 'g');
 insert into runme.script (id, account, content, date_created, date_modified, language, name) values ('68b577e4356b15361163461cbe8a483a', 01042001, '', 1602996230, 1602996230, 0, 'hhg');
 insert into runme.script (id, account, content, date_created, date_modified, language, name) values ('d06758739910a3d26debbabbe9dc628c', 01042001, '', 1602997141, 1602997141, 0, 'h');

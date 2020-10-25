@@ -1,1 +1,0 @@
-insert into system_schema.dropped_columns (keyspace_name, table_name, column_name, dropped_time, kind, type) values ('runme', 'account', 'create_time', '2020-10-17 14:27:55.743', 'regular', 'bigint');
