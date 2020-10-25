@@ -18,23 +18,24 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/dn/runme/WebAppInterface$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/dn/runme/WebAppInterface$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/dn/runme/WebAppInterface$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/dn/runme/WebAppInterface$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/dn/runme/WebAppInterface$16$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/dn/runme/WebAppInterface$16$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/dn/runme/WebAppInterface$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/dn/runme/WebAppInterface$16.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/dn/runme/WebAppInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/dn/runme/WebAppInterface.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_assets/debug/out/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_assets/debug/out/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/dn/runme/WebAppInterface$10.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/dn/runme/WebAppInterface$10.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/dn/runme/WebAppInterface$11.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/dn/runme/WebAppInterface$11.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/dn/runme/WebAppInterface$16$1.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/dn/runme/WebAppInterface$16$1.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/dn/runme/WebAppInterface$16.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/dn/runme/WebAppInterface$16.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/dn/runme/WebAppInterface.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/dn/runme/WebAppInterface.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/assets/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dn/runme/WebAppInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dn/runme/WebAppInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/API/V1/build/web/WEB-INF/classes/com/dn/runme/Server$Connect$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/API/V1/build/web/WEB-INF/classes/com/dn/runme/Server$Connect$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/API/V1/build/web/WEB-INF/classes/com/dn/runme/Server$Connect.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/API/V1/build/web/WEB-INF/classes/com/dn/runme/Server$Connect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/API/V1/build/web/WEB-INF/classes/com/dn/runme/controller/Script.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/API/V1/build/web/WEB-INF/classes/com/dn/runme/controller/Script.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Server/API/V1/build/web/WEB-INF/classes/com/dn/runme/model/Script.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/API/V1/build/web/WEB-INF/classes/com/dn/runme/model/Script.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/API/V1/src/java/com/dn/runme/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/API/V1/src/java/com/dn/runme/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/API/V1/src/java/com/dn/runme/controller/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/API/V1/src/java/com/dn/runme/controller/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/API/V1/src/java/com/dn/runme/controller/Script.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/API/V1/src/java/com/dn/runme/controller/Script.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Server/API/V1/src/java/com/dn/runme/model/Script.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/API/V1/src/java/com/dn/runme/model/Script.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +43,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="FA6A40304217" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="10.1.10.89:5555" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -73,8 +74,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="10.1.10.189:5555" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-10-17T22:43:18.857Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Galaxy_Nexus_API_27" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-10-18T04:43:24.407Z" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
@@ -190,25 +191,25 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="550" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602962574217" />
-    <state width="1492" height="323" key="GridCell.Tab.0.bottom" timestamp="1602984009937">
+    <state width="1492" height="-40" key="GridCell.Tab.0.bottom" timestamp="1602996137188">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1492" height="323" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602984009937" />
+    <state width="1492" height="-40" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602996137188" />
     <state width="1340" height="224" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1602792919135" />
-    <state width="1492" height="323" key="GridCell.Tab.0.center" timestamp="1602984009937">
+    <state width="1492" height="-40" key="GridCell.Tab.0.center" timestamp="1602996137188">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1492" height="323" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602984009937" />
+    <state width="1492" height="-40" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602996137188" />
     <state width="1340" height="224" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1602792919134" />
-    <state width="1492" height="323" key="GridCell.Tab.0.left" timestamp="1602984009937">
+    <state width="1492" height="-40" key="GridCell.Tab.0.left" timestamp="1602996137187">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1492" height="323" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602984009937" />
+    <state width="1492" height="-40" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602996137187" />
     <state width="1340" height="224" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1602792919134" />
-    <state width="1492" height="323" key="GridCell.Tab.0.right" timestamp="1602984009937">
+    <state width="1492" height="-40" key="GridCell.Tab.0.right" timestamp="1602996137188">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1492" height="323" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602984009937" />
+    <state width="1492" height="-40" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602996137188" />
     <state width="1340" height="224" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1602792919135" />
     <state width="498" height="448" key="SwitcherDM" timestamp="1602940587936">
       <screen x="0" y="0" width="1536" height="824" />
@@ -230,10 +231,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="427" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1602882579958" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1602952949059">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1602997870042">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1602952949059" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1602997870042" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,0 +1,1 @@
+insert into runme.account (id, birth_year, date_created, email, frist_name, last_name, password, token) values (01042001, 2001, null, 'duyanh@nguyen.com', 'Duy Anh', 'Nguyen', '202cb962ac59075b964b07152d234b70', '8249218621e2872c7363758e4661dada');

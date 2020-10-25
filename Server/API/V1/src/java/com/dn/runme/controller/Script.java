@@ -63,5 +63,28 @@ public class Script {
         }
         return null;
     }
+    
+    @RequestMapping(value = "/Add", method = RequestMethod.POST)
+    @ResponseBody
+    public String Add(@RequestParam(value = "Name", required = true) String name,@RequestParam(value = "Language", required = true) String lang, @RequestParam(value = "Token", required = true) String token) {
+        try {
+            return com.dn.runme.model.Script.Add(name,lang,token).toString();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+    
+     
+    @RequestMapping(value = "/Delete", method = RequestMethod.POST)
+    @ResponseBody
+    public String Delete(@RequestParam(value = "ID", required = true) String id, @RequestParam(value = "Token", required = true) String token) {
+        try {
+            return com.dn.runme.model.Script.Delete(id,token).toString();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
 
 }

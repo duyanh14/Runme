@@ -121,8 +121,10 @@
                     padding: 22px;font-size: 22px;
                 ">Account / Login</h1>
 
-                <input type="email" id="page_account_view_login_email" class="form-control shadow-none" placeholder="Email address" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
-                <input type="password" id="page_account_view_login_password" class="form-control shadow-none" placeholder="Password" required="" style="margin-bottom: 20px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                <input type="email" id="page_account_view_login_email" class="form-control shadow-none" placeholder="Email address" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;"
+                value ="duyanh@nguyen.com">
+                <input type="password" id="page_account_view_login_password" class="form-control shadow-none" placeholder="Password" required="" style="margin-bottom: 20px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;"
+                value="123">
                 <div>
                     <label style="float: right;
     margin-bottom: 20px;font-size: 14px;">
@@ -210,7 +212,9 @@
     position: fixed;
     width: 100%;">
             <div>
-                <button type="button" class="btn btn-dark shadow-none" onclick="account_script_create();" style="border-radius: unset;width:50px;height: 34px;"><i class="fas fa-file"></i>
+                <button type="button" class="btn btn-dark shadow-none" onclick="account_script_create();" style="margin-right: 10px;border-radius: unset;width:50px;height: 34px;"><i class="fas fa-file"></i>
+                </button>
+                <button type="button" class="btn btn-dark shadow-none" onclick="account_script_reload();" style="border-radius: unset;width:50px;height: 34px;"><i class="fas fa-sync-alt"></i>
                 </button>
             </div>
             <div>
@@ -252,7 +256,11 @@
     position: fixed;
     width: 100%;">
             <div>
-                <button type="button" class="btn btn-dark shadow-none" id="page_dashboard_view_script_details_save" onclick="account_script_details_save()" style="border-radius: unset;width:50px;height: 34px;"><i class="fas fa-save"></i>
+                <button type="button" class="btn btn-dark shadow-none" id="page_dashboard_view_script_details_save" onclick="account_script_details_save()" style="margin-right: 10px;border-radius: unset;width:50px;height: 34px;"><i class="fas fa-save"></i>
+                </button>
+                <button type="button" class="btn btn-dark shadow-none" id="page_dashboard_view_script_details_delete" onclick="account_script_details_delete()" style="border-radius: unset;width:50px;height: 34px;display:none;"><i class="fas fa-trash"></i>
+                </button>
+                <button type="button" class="btn btn-dark shadow-none" id="page_dashboard_view_script_details_add" onclick="account_script_details_add()" style="border-radius: unset;width:50px;height: 34px;display:none;"><i class="fas fa-plus"></i>
                 </button>
             </div>
             <div>
@@ -323,15 +331,15 @@
                 ">Account / Details</h1>
 
 
-                <input readonly type="email" id="inputEmail" class="form-control shadow-none" placeholder="Email address" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
-                <input type="email" id="inputEmail" class="form-control shadow-none" placeholder="Frist name" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
-                <input type="email" id="inputEmail" class="form-control shadow-none" placeholder="Last name" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                <input readonly type="email" id="page_dashboard_view_account_details_email" class="form-control shadow-none" placeholder="Email address" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                <input type="text" id="page_dashboard_view_account_details_frist_name" class="form-control shadow-none" placeholder="Frist name" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                <input type="text" id="page_dashboard_view_account_details_last_name" class="form-control shadow-none" placeholder="Last name" required="" autofocus="" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
                 <div class="form-group">
-                    <select class="form-control shadow-none" id="exampleFormControlSelect2" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
+                    <select class="form-control shadow-none" id="page_dashboard_view_account_details_birth_year" style="margin-bottom: 10px;border-color: rgb(208 208 208);height: 48px;border-radius: unset;">
                         <script>
                                 var year = new Date().getFullYear();
                                 for (i = 0; i < 100; i++) {
-                                    $("#exampleFormControlSelect2").append("<option>" + (year - i) + "</option>");
+                                    $("#page_dashboard_view_account_details_birth_year").append("<option value='"+(year - i) +"'>" + (year - i) + "</option>");
                                 }
                             </script>
                     </select>
@@ -520,6 +528,13 @@ padding: 10px;">
         $("#page_loading").hide();
     }
 
+    function account_details(email,fn,ln,by) {
+        $('#page_dashboard_view_account_details_email').val(email);
+        $('#page_dashboard_view_account_details_frist_name').val(fn);
+        $('#page_dashboard_view_account_details_last_name').val(ln);
+        $('#page_dashboard_view_account_details_birth_year').val(by);
+    }
+
     var account_script_index = 0;
 
     function account_script_clear() {
@@ -531,6 +546,11 @@ padding: 10px;">
         $("#page_loading").show();
         $('#page_dashboard_view_script_details_page_name').text('Script / Details');
         $('#page_dashboard_view_script_details_date').show();
+
+        $('#page_dashboard_view_script_details_save').show();
+        $('#page_dashboard_view_script_details_delete').show();
+        $('#page_dashboard_view_script_details_add').hide();
+
         Android.Account_Script_Details(id);
     }
 
@@ -557,6 +577,21 @@ padding: 10px;">
         showPageView('dashboard', 'script');
         $("#page_loading").hide();
     }
+
+     function account_script_details_add() {
+        name = $("#page_dashboard_view_script_details_name").val();
+        language = $("#page_dashboard_view_script_details_language").val();
+        Android.Account_Script_Add(name,language);
+        $("#page_loading").show();
+     }
+
+     function account_script_details_add_callback(id) {
+        if (id == 0) {
+            $("#page_loading").hide();
+            return;
+        }
+        account_script_editor(id);
+     }
 
     function account_script_list_set(id, name, language) {
         $('#page_dashboard_view_script_list tr[data-id="' + id + '"] td:eq(0)').text(name);
@@ -645,8 +680,38 @@ padding: 10px;">
         $('#page_dashboard_view_script_details_name').val('');
         $('#page_dashboard_view_script_details_language').val(1);
         $('#page_dashboard_view_script_details_date').hide();
+
+        $('#page_dashboard_view_script_details_save').hide();
+        $('#page_dashboard_view_script_details_delete').hide();
+        $('#page_dashboard_view_script_details_add').show();
+
         showPageView('dashboard', 'script_details');
     }
+
+    function account_script_create_callback(){
+        $("#page_loading").hide();
+    }
+
+    function account_script_reload(){
+        $("#page_loading").show();
+        Android.Account_Script_Reload();
+    }
+
+     function account_script_reload_callback(){
+        showPageView('dashboard','script');
+        $("#page_loading").hide();
+     }
+
+     function account_script_details_delete(){
+        $("#page_loading").show();
+        id = $("#page_dashboard_view_script_details").data("id");
+        Android.Account_Script_Delete(id);
+     }
+
+     function account_script_Details_delete_callback(){
+        showPageView('dashboard','script');
+        $("#page_loading").hide();
+     }
 
     function page_dashboard_view_script_editor_tab() {
         page_dashboard_view_script_editor_append("    ", true);
@@ -677,6 +742,4 @@ padding: 10px;">
         }
     }
 </script>
-
-
 </html>

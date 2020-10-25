@@ -120,6 +120,9 @@ public class WebAppInterface {
                         @Override
                         public void run() {
                             try {
+                                MainActivity.webView.loadUrl("javascript:account_details('" + Account.Email + "','" + Account.FristName + "','" + Account.LastName + "',"+ Account.BirthYear+")");
+
+
                                 MainActivity.webView.loadUrl("javascript:account_script_list_put('" + obj.getString("ID") + "','" + obj.getString("Name") + "','" + obj.getString("Language") + "')");
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -153,7 +156,7 @@ public class WebAppInterface {
                             @Override
                             public void run() {
                                 try {
-                                    MainActivity.webView.loadUrl("javascript:account_script_details_callback('" + id + "','" + request.getString("Name") + "'," + request.getInt("Language") + ",'" + Time.formatTimeAgo(request.getLong("DateModified") )+ "','" + Time.formatTimeAgo(request.getLong("DateCreated") )+ "')");
+                                    MainActivity.webView.loadUrl("javascript:account_script_details_callback('" + id + "','" + request.getString("Name") + "'," + request.getInt("Language") + ",'" + Time.formatTimeAgo(request.getLong("DateModified")) + "','" + Time.formatTimeAgo(request.getLong("DateCreated")) + "')");
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
@@ -245,7 +248,7 @@ public class WebAppInterface {
                 int i = 0;
 
                 for (final String s : lines) {
-                    if(i++ == lines.length -1){
+                    if (i++ == lines.length - 1) {
                         MainActivity.webView.post(new Runnable() {
                             @Override
                             public void run() {
@@ -274,7 +277,7 @@ public class WebAppInterface {
                     @Override
                     public void run() {
                         try {
-                            MainActivity.webView.loadUrl("javascript:account_script_editor_set_current('"+id+"','"+request.getString("Name")+"');");
+                            MainActivity.webView.loadUrl("javascript:account_script_editor_set_current('" + id + "','" + request.getString("Name") + "');");
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -325,31 +328,31 @@ public class WebAppInterface {
 
                     if (request.getInt("Status") == 0) {
 
-                    dsv = new Device.Server();
-                    dsv.Connect();
+                        dsv = new Device.Server();
+                        dsv.Connect();
 
-                    SocketCommand skcz = new SocketCommand();
-                    skcz.Command.add("Script");
-                    skcz.Command.add("Execute");
-                    skcz.Parameter.put("ID", id);
-                    dsv.Command_Send(skcz);
+                        SocketCommand skcz = new SocketCommand();
+                        skcz.Command.add("Script");
+                        skcz.Command.add("Execute");
+                        skcz.Parameter.put("ID", id);
+                        dsv.Command_Send(skcz);
 
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                Thread.sleep(500);
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                            MainActivity.webView.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    MainActivity.webView.loadUrl("javascript:page_dashboard_view_script_editor_execute_callback()");
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    Thread.sleep(500);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                 }
-                            });
-                        }
-                    }).start();
+                                MainActivity.webView.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        MainActivity.webView.loadUrl("javascript:page_dashboard_view_script_editor_execute_callback()");
+                                    }
+                                });
+                            }
+                        }).start();
                     } else {
                         new Thread(new Runnable() {
                             @Override
@@ -379,9 +382,9 @@ public class WebAppInterface {
     }
 
     @JavascriptInterface
-    public void Account_Script_Terminal_Stop(){
+    public void Account_Script_Terminal_Stop() {
         dsv.Disconnect();
-        while(dsv.TConnect.isAlive()) {
+        while (dsv.TConnect.isAlive()) {
             try {
                 dsv.TConnect.interrupt();
             } catch (Exception ex) {
@@ -408,7 +411,7 @@ public class WebAppInterface {
     }
 
     @JavascriptInterface
-    public void Account_Script_Terminal_Input_Send(String s){
+    public void Account_Script_Terminal_Input_Send(String s) {
         try {
             SocketCommand skc = new SocketCommand();
             skc.Command.add("Script");
@@ -418,6 +421,65 @@ public class WebAppInterface {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    @JavascriptInterface
+    public void Account_Script_Add(String name, String lang) {
+        try {
+            Map<String, Object> parameters = new LinkedHashMap<>();
+            parameters.put("Token", Account.Token);
+            parameters.put("Name", name);
+            parameters.put("Language", lang);
+
+            final JSONObject request = new JSONObject(API.Request.Make("Script", "Add", parameters));
+
+            if (request.getInt("Status") == 0) {
+                Account_Script_Reload();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(500);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        MainActivity.webView.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    MainActivity.webView.loadUrl("javascript:account_script_details_add_callback('"+request.getString("ID")+"')");
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                    }
+                }).start();
+                return;
+            } else {
+                showToast("Save failed.");
+            }
+
+        } catch (Exception ex) {
+            showToast("Save failed.");
+            ex.printStackTrace();
+        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(500);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                MainActivity.webView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        MainActivity.webView.loadUrl("javascript:account_script_details_add_callback(0)");
+                    }
+                });
+            }
+        }).start();
     }
 
     @JavascriptInterface
@@ -459,5 +521,70 @@ public class WebAppInterface {
         }).start();
 
 
+    }
+
+    @JavascriptInterface
+    public void Account_Script_Reload() {
+        MainActivity.webView.post(new Runnable() {
+            @Override
+            public void run() {
+                MainActivity.webView.loadUrl("javascript:account_script_clear()");
+            }
+        });
+        Account_Script_List();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(500);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                MainActivity.webView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        MainActivity.webView.loadUrl("javascript:account_script_reload_callback()");
+                    }
+                });
+            }
+        }).start();
+    }
+
+    @JavascriptInterface
+    public void Account_Script_Delete(String id) {
+        try {
+            Map<String, Object> parameters = new LinkedHashMap<>();
+            parameters.put("Token", Account.Token);
+            parameters.put("ID", id);
+
+            final JSONObject request = new JSONObject(API.Request.Make("Script", "Delete", parameters));
+
+            if (request.getInt("Status") == 0) {
+                Account_Script_Reload();
+                return;
+            } else {
+                showToast("Delete failed.");
+            }
+
+        } catch (Exception ex) {
+            showToast("Delete failed.");
+            ex.printStackTrace();
+        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(500);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                MainActivity.webView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        MainActivity.webView.loadUrl("javascript:account_script_Details_delete_callback()");
+                    }
+                });
+            }
+        }).start();
     }
 }

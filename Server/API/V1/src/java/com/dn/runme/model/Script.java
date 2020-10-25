@@ -193,9 +193,77 @@ public class Script {
             if (content != null) {
                 sess.execute("UPDATE script SET content = '" + new RC4(RC4.Key()).Encrypt(content) + "' WHERE id = '" + id + "' ");
             }
-            
+
             sess.execute("UPDATE script SET date_modified = " + Time.Unix.Now() + " WHERE id = '" + id + "' ");
 
+            rtn.put("Status", 0);
+            rtn.remove("Message");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return rtn;
+    }
+
+    public static JSONObject Add(String name, String lang, String token) {
+        JSONObject rtn = new JSONObject();
+        try {
+            rtn.put("Status", 1);
+            rtn.put("Message", "An unknown error.");
+
+            com.dn.runme.dto.Account account = Account.Authentication_Token(token);
+
+            if (account == null) {
+                rtn.put("Status", 2);
+                rtn.put("Message", "Can't authentication account.");
+                return rtn;
+            }
+
+            Session sess = Database.Connect();
+
+            String id = ID.Gen("");
+
+            sess.execute("INSERT INTO script (id, account, name, language,content,date_modified, date_created) VALUES('" + id + "','" + account.ID + "', '" + name + "', " + lang + ", '', " + Time.Unix.Now() + ", " + Time.Unix.Now() + ");");
+
+            rtn.put("ID", id);
+            rtn.put("Status", 0);
+            rtn.remove("Message");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return rtn;
+    }
+
+    public static JSONObject Delete(String id, String token) {
+        JSONObject rtn = new JSONObject();
+        try {
+            rtn.put("Status", 1);
+            rtn.put("Message", "An unknown error.");
+
+            com.dn.runme.dto.Account account = Account.Authentication_Token(token);
+
+            if (account == null) {
+                rtn.put("Status", 2);
+                rtn.put("Message", "Can't authentication account.");
+                return rtn;
+            }
+            
+            com.dn.runme.dto.Script script = Script.Get_ID(id);
+            if (script == null) {
+                rtn.put("Status", 3);
+                rtn.put("Message", "Script not exist.");
+                return rtn;
+            }
+
+            if (!script.Account.equals(account.ID)) {
+                rtn.put("Status", 4);
+                rtn.put("Message", "Can't authentication account.");
+                return rtn;
+            }
+
+            Session sess = Database.Connect();
+
+
+            sess.execute("DELETE FROM script WHERE id='"+id+"' IF EXISTS;");
 
             rtn.put("Status", 0);
             rtn.remove("Message");
