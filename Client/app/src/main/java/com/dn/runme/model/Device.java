@@ -19,7 +19,7 @@ import java.net.SocketTimeoutException;
 public class Device {
     public static class Server {
 
-        public static String IP = "10.1.10.174";
+        public static String IP = "192.168.1.101";
         public static int Port = 6199;
 
         public DataInputStream dis;

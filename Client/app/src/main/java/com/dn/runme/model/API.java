@@ -20,7 +20,7 @@ public class API {
 
     public static class Config {
 
-        public static String URL = "http://10.1.10.174:8080/Runme/";
+        public static String URL = "http://192.168.1.101:8080/Runme/";
     }
 
     public static class Request {

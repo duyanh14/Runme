@@ -170,7 +170,7 @@ public class Device {
 
                         Script_Execute_STDIN = new BufferedWriter(new OutputStreamWriter(p.getOutputStream()));
 
-                        String file = "F:\\Runme\\Script\\" + Account.ID + id + Time.Unix.Now() + ".py";
+                        String file = "E:\\Runme\\Script\\" + Account.ID + id + Time.Unix.Now() + ".py";
                         FileUtils.writeStringToFile(new File(file), script.Content, "UTF-8", false);
 
                         Script_Execute_Input(Script_Execute_STDIN, "python " + file);
