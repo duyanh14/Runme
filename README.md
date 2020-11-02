@@ -1,4 +1,4 @@
 # Runme
 MindX hackathon project
 
-<img src="https://raw.githubusercontent.com/duyanh14/Runme/main/Screenshot/1_welcome.png" width="140px">
+<img src="https://raw.githubusercontent.com/duyanh14/Runme/main/Screenshot/1_welcome.png" width="280px">
