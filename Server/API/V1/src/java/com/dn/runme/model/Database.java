@@ -18,9 +18,9 @@ import com.datastax.driver.core.Session;
  */
 public class Database {
     
-    public static String Host = "puinit.com";
-    public static String User = "cassandra";
-    public static String Password = "cassandra";
+    public static String Host = "";
+    public static String User = "";
+    public static String Password = "";
     public static String Keyspace = "Runme";
     public static Session Sess = null;
 
@@ -31,7 +31,7 @@ public class Database {
         try {
               Cluster cluster = Cluster.builder()
                 .addContactPoints(Host)
-                .withCredentials("cassandra", "cassandra")
+                .withCredentials(User, Password)
                 .build();
 
                 Sess = cluster.connect(Keyspace);
