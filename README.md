@@ -1,6 +1,8 @@
 # Runme
 MindX hackathon project
 
+Use Java and Cassandra as core technologies 
+
 <img src="https://raw.githubusercontent.com/duyanh14/Runme/main/Screenshot/1_welcome.png" width="400px">
 <img src="https://raw.githubusercontent.com/duyanh14/Runme/main/Screenshot/2_login.png" width="400px">
 <img src="https://raw.githubusercontent.com/duyanh14/Runme/main/Screenshot/3_register.png" width="400px">
